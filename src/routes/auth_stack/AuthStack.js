@@ -14,6 +14,7 @@ export default function AuthStack() {
 
       <Stack.Screen name="LoginStack" component={LoginStack} />
 
+      {/* MainStack is not a part of onboarding. */}
       <Stack.Screen name="MainStack" component={MainStack} />
     </Stack.Navigator>
   );
