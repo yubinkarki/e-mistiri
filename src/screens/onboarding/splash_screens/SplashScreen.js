@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, Animated, StatusBar} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {Images} from '@app/constants';
+import {Colors, Images} from '@app/constants';
 import {SplashScreenStyles as Styles} from '@app/assets/styles';
 
 export default function SplashScreen({navigation}) {
@@ -27,7 +27,7 @@ export default function SplashScreen({navigation}) {
 
   return (
     <View style={Styles.mainContainer}>
-      <StatusBar hidden />
+      <StatusBar backgroundColor={Colors.splashScreenBG} />
       <Animated.View style={animatedPosition}>
         <Images.mainLogo style={Styles.mainLogo} />
       </Animated.View>
