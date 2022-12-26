@@ -18,7 +18,7 @@ export default function OnboardingStack() {
       <Stack.Screen
         name="OnboardingScreen"
         component={OnboardingScreen}
-        options={{title: 'Onboarding'}}
+        options={{title: 'Onboarding', animation: 'slide_from_right'}}
       />
     </Stack.Navigator>
   );
