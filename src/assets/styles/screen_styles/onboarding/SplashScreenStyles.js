@@ -6,9 +6,9 @@ export const SplashScreenStyles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-end',
-    backgroundColor: 'red',
+    backgroundColor: Colors.splashScreenBG,
   },
   mainLogo: {
-    color: Colors.whiteColor,
+    color: Colors.white,
   },
 });

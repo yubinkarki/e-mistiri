@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View, Animated} from 'react-native';
+import {View, Animated, StatusBar} from 'react-native';
+import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Images} from '@app/constants';
 import {SplashScreenStyles as Styles} from '@app/assets/styles';
 
-export default function SplashScreen() {
-  const [bottomValue, setBottomValue] = useState(new Animated.Value(100));
+export default function SplashScreen({navigation}) {
+  const [bottomValue, setBottomValue] = useState(new Animated.Value(hp('20%')));
 
   const animatedPosition = {
     transform: [{translateY: bottomValue}],
@@ -12,12 +13,12 @@ export default function SplashScreen() {
 
   const moveLogo = () => {
     Animated.timing(bottomValue, {
-      toValue: -250,
-      duration: 1000,
+      toValue: -hp('45%'),
+      duration: 1200,
       useNativeDriver: true,
     }).start();
 
-    setTimeout(() => navigation.navigate('OnboardingScreen'), 1500);
+    setTimeout(() => navigation.navigate('OnboardingScreen'), 1800);
   };
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function SplashScreen() {
 
   return (
     <View style={Styles.mainContainer}>
+      <StatusBar hidden />
       <Animated.View style={animatedPosition}>
         <Images.mainLogo style={Styles.mainLogo} />
       </Animated.View>
