@@ -1,4 +1,5 @@
 export default {
-  whiteColor: '#fff',
-  blackColor: '#000',
+  white: '#ffffff',
+  black: '#000000',
+  splashScreenBG: '#41416E',
 };
