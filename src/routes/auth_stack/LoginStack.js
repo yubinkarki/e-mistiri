@@ -10,14 +10,10 @@ export default function LoginStack() {
       <Stack.Screen
         name="Signup"
         component={Signup}
-        options={{title: 'Signup', animation: 'slide_from_right'}}
+        options={{title: 'Signup'}}
       />
 
-      <Stack.Screen
-        name="Login"
-        component={Login}
-        options={{title: 'Login', animation: 'slide_from_right'}}
-      />
+      <Stack.Screen name="Login" component={Login} options={{title: 'Login'}} />
     </Stack.Navigator>
   );
 }

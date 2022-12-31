@@ -12,7 +12,11 @@ export default function AuthStack() {
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="OnboardingStack" component={OnboardingStack} />
 
-      <Stack.Screen name="LoginStack" component={LoginStack} />
+      <Stack.Screen
+        name="LoginStack"
+        component={LoginStack}
+        options={{animation: 'slide_from_right'}}
+      />
 
       {/* MainStack is not a part of onboarding. */}
       <Stack.Screen name="MainStack" component={MainStack} />
