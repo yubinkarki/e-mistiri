@@ -1,3 +1,4 @@
 import {SplashScreenStyles} from './SplashScreenStyles';
+import {OnboardingScreenStyles} from './OnboardingScreenStyles';
 
-export {SplashScreenStyles};
+export {SplashScreenStyles, OnboardingScreenStyles};
