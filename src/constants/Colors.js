@@ -8,4 +8,5 @@ export default {
   textLink: '#212E7E',
   subtitleText: '#8F93AF',
   inputFieldIcon: '#868686',
+  loginBackground: '#F5F5F5',
 };
