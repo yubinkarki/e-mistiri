@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StatusBar, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SLI from 'react-native-vector-icons/SimpleLineIcons';
 import AD from 'react-native-vector-icons/AntDesign';

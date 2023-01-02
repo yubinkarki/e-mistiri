@@ -42,7 +42,7 @@ export const OnboardingScreenStyles = StyleSheet.create({
     ...TextStyles.poppinsThirtyTwoNormal,
     color: Colors.black,
     textAlign: 'center',
-    paddingHorizontal: wp('4%'),
+    paddingHorizontal: wp('8%'),
     paddingTop: hp('5%'),
   },
   descriptionText: {

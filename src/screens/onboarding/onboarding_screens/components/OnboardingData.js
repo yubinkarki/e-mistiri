@@ -7,7 +7,7 @@ export const onboardingData = [
     description: 'Use this to call for the best service near you.',
   },
   {
-    image: <Images.onboarding2 viewBox="90 50 250 400" />,
+    image: <Images.onboarding2 viewBox="75 10 300 450" />,
     title: 'On your services within a few taps',
     description: 'Exploit the service with just a few taps.',
   },
