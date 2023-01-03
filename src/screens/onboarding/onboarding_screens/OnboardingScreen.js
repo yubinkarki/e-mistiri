@@ -26,9 +26,15 @@ export default function OnboardingScreen({navigation}) {
         <View style={Styles.buttonContainer}>
           <View>
             {screenIndex > 0 ? (
-              <TouchableOpacity onPress={moveToPreviousScreen}>
-                <SLI name="arrow-left-circle" color={Colors.white} size={45} />
-              </TouchableOpacity>
+              <View opacity={0.7}>
+                <TouchableOpacity onPress={moveToPreviousScreen}>
+                  <SLI
+                    name="arrow-left-circle"
+                    color={Colors.white}
+                    size={45}
+                  />
+                </TouchableOpacity>
+              </View>
             ) : (
               <TouchableOpacity disabled>
                 <SLI
@@ -41,9 +47,12 @@ export default function OnboardingScreen({navigation}) {
           </View>
 
           {screenIndex !== onboardingData.length - 1 ? (
-            <TouchableOpacity onPress={() => navigation.navigate('LoginStack')}>
-              <Text style={Styles.skipButtonText}>Skip</Text>
-            </TouchableOpacity>
+            <View opacity={0.7}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('LoginStack')}>
+                <Text style={Styles.skipButtonText}>Skip</Text>
+              </TouchableOpacity>
+            </View>
           ) : null}
         </View>
 
