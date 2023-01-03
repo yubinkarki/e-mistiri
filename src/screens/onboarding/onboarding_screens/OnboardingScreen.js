@@ -74,6 +74,10 @@ export default function OnboardingScreen({navigation}) {
             <AD name="right" size={25} color={Colors.white} />
           </LinearGradient>
         </TouchableOpacity>
+
+        <Text style={Styles.pageText}>
+          {screenIndex + 1}/{onboardingData.length}
+        </Text>
       </View>
     </View>
   );

@@ -37,6 +37,7 @@ export const OnboardingScreenStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.white,
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   titleText: {
     ...TextStyles.poppinsThirtyTwoNormal,
@@ -50,11 +51,15 @@ export const OnboardingScreenStyles = StyleSheet.create({
     color: Colors.gray,
     textAlign: 'center',
     paddingHorizontal: wp('16%'),
-    paddingTop: hp('3%'),
+  },
+  pageText: {
+    ...TextStyles.poppinsRegularNormal,
+    color: Colors.subtitleText,
+    paddingBottom: hp('1%'),
   },
   nextButtonContainer: {
     borderRadius: 40,
-    paddingTop: hp('8%'),
+    paddingBottom: hp('6%'),
   },
   nextButton: {
     alignItems: 'center',
