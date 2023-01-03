@@ -8,5 +8,6 @@ export default {
   textLink: '#212E7E',
   subtitleText: '#8F93AF',
   inputFieldIcon: '#868686',
-  loginBackground: '#F5F5F5',
+  loginBackground: '#F6F6F6',
+  errorText: '#EE1D0D',
 };
