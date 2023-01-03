@@ -40,9 +40,11 @@ export default function OnboardingScreen({navigation}) {
             )}
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate('LoginStack')}>
-            <Text style={Styles.skipButtonText}>Skip</Text>
-          </TouchableOpacity>
+          {screenIndex !== onboardingData.length - 1 ? (
+            <TouchableOpacity onPress={() => navigation.navigate('LoginStack')}>
+              <Text style={Styles.skipButtonText}>Skip</Text>
+            </TouchableOpacity>
+          ) : null}
         </View>
 
         <View style={Styles.mainImageContainer}>
