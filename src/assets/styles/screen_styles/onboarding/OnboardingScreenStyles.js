@@ -8,7 +8,7 @@ import {Colors, TextStyles} from '@app/constants';
 export const OnboardingScreenStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.loginBackground,
   },
   topContainer: {
     height: hp('45%'),
@@ -35,7 +35,7 @@ export const OnboardingScreenStyles = StyleSheet.create({
   },
   bottomContainer: {
     flex: 1,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.loginBackground,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
