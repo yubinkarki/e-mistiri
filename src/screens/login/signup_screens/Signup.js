@@ -26,7 +26,6 @@ export default function Signup({navigation}) {
       confirmPassword: '',
     },
   });
-
   const [checked, setChecked] = useState(false);
 
   const signupSubmitHandler = signupData => {
@@ -155,17 +154,13 @@ export default function Signup({navigation}) {
           buttonRadius={10}
           buttonLabel="Sign Up"
           buttonHeight={55}
-          handleSubmit={handleSubmit}
           onPressHandler={handleSubmit(signupSubmitHandler)}
         />
       </View>
 
       <View style={Styles.signupFooterContainer}>
         <Text style={Styles.footerText}>Already have an account? </Text>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('LoginPage');
-          }}>
+        <TouchableOpacity onPress={signupSubmitHandler}>
           <Text style={Styles.footerLinkText}>Signin</Text>
         </TouchableOpacity>
       </View>
