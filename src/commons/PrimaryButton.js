@@ -5,9 +5,6 @@ import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Colors, TextStyles} from '@app/constants';
 
 const Styles = StyleSheet.create({
-  buttonStyles: {
-    width: 'auto',
-  },
   labelStyles: {
     ...TextStyles.poppinsExtraLargeNormal,
   },
@@ -17,26 +14,25 @@ const Styles = StyleSheet.create({
 });
 
 export default function PrimaryButton({
-  buttonLabel,
-  buttonHeight,
+  buttonLabel = 'Label',
+  buttonHeight = 40,
   onPressHandler,
   buttonWidth,
   buttonIconName,
   buttonIconSize,
   buttonIconColor,
   buttonRadius,
-  isOutlined,
+  outlined,
 }) {
   return (
     <Button
-      mode={isOutlined ? 'outlined' : 'contained'}
-      color={Colors.textLink}
+      mode={outlined ? 'outlined' : 'contained'}
       uppercase={false}
       style={{
-        ...Styles.buttonStyles,
         height: buttonHeight,
         width: buttonWidth,
         borderRadius: buttonRadius,
+        backgroundColor: Colors.textLink,
       }}
       labelStyle={Styles.labelStyles}
       contentStyle={Styles.contentStyles}
@@ -47,9 +43,7 @@ export default function PrimaryButton({
           color={buttonIconColor}
         />
       )}
-      onPress={() => {
-        onPressHandler();
-      }}>
+      onPress={() => onPressHandler()}>
       {buttonLabel}
     </Button>
   );
