@@ -1,15 +1,22 @@
 import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {Colors} from '@app/constants';
+
+const Styles = StyleSheet.create({
+  textInput: {
+    backgroundColor: Colors.white,
+  },
+});
 
 export default function InputField({
   labelText,
   isPassword,
   passwordIcon,
+  outlineColor = 'transparent',
   onBlur,
   onChange,
   value,
-  outlineColor = 'transparent',
 }) {
   const [hidePassword, setHidePassword] = useState(isPassword);
   const [eyeIcon, setEyeIcon] = useState(passwordIcon);
@@ -18,7 +25,7 @@ export default function InputField({
     <TextInput
       theme={{roundness: 12}}
       mode="outlined"
-      label={labelText}
+      placeholder={labelText}
       secureTextEntry={hidePassword}
       outlineColor={outlineColor}
       activeOutlineColor={Colors.textLink}
@@ -26,7 +33,7 @@ export default function InputField({
       onChangeText={onChange}
       value={value}
       selectionColor={Colors.subtitleText}
-      style={{backgroundColor: Colors.white}}
+      style={Styles.textInput}
       right={
         passwordIcon && (
           <TextInput.Icon
