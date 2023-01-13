@@ -6,6 +6,13 @@ export const inputRules = {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     },
   },
+  fullName: {
+    required: true,
+    minLength: 6,
+    pattern: {
+      value: /^([A-Za-z]{3,}) ([A-Za-z]{3,})$/,
+    },
+  },
   password: {
     required: true,
     minLength: 8,
