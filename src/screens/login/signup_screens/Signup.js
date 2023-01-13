@@ -22,6 +22,7 @@ export default function Signup({navigation}) {
   } = useForm({
     defaultValues: {
       email: '',
+      fullName: '',
       password: '',
       confirmPassword: '',
     },
@@ -59,7 +60,6 @@ export default function Signup({navigation}) {
             render={({field: {onChange, onBlur, value}}) => (
               <InputField
                 labelText="Email Address"
-                isPassword={false}
                 onBlur={onBlur}
                 onChange={onChange}
                 value={value}
@@ -71,6 +71,32 @@ export default function Signup({navigation}) {
             <Text style={Styles.errorText}>Enter your email</Text>
           ) : errors?.email?.type === 'pattern' ? (
             <Text style={Styles.errorText}>Enter a valid email address</Text>
+          ) : null}
+        </View>
+
+        <View style={Styles.inputFieldContainer}>
+          <Controller
+            control={control}
+            name="fullName"
+            rules={{...inputRules.fullName}}
+            render={({field: {onChange, onBlur, value}}) => (
+              <InputField
+                labelText="Full Name"
+                onBlur={onBlur}
+                onChange={onChange}
+                value={value}
+              />
+            )}
+          />
+
+          {errors.fullName?.type === 'required' ? (
+            <Text style={Styles.errorText}>Enter your full name</Text>
+          ) : errors.fullName?.type === 'minLength' ? (
+            <Text style={Styles.errorText}>Too short</Text>
+          ) : errors.fullName?.type === 'pattern' ? (
+            <Text style={Styles.errorText}>
+              At least 3 letters each first and last name
+            </Text>
           ) : null}
         </View>
 
