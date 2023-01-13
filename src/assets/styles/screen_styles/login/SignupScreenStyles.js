@@ -61,6 +61,7 @@ export const SignupScreenStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     paddingTop: hp('6%'),
+    paddingBottom: hp('4%'),
   },
   footerText: {
     ...TextStyles.poppinsRegularLight,
