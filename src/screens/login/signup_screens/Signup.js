@@ -81,7 +81,7 @@ export default function Signup({navigation}) {
             rules={{...inputRules.password}}
             render={({field: {onChange, onBlur, value}}) => (
               <InputField
-                labelText="Password"
+                labelText="Create Password"
                 isPassword={true}
                 passwordIcon={true}
                 onBlur={onBlur}
@@ -106,8 +106,7 @@ export default function Signup({navigation}) {
             name="confirmPassword"
             rules={{
               ...inputRules.confirmPassword,
-              validate: value =>
-                value === watch('password') || 'The passwords do not match',
+              validate: value => value === watch('password'),
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <InputField
@@ -123,6 +122,8 @@ export default function Signup({navigation}) {
 
           {errors?.confirmPassword?.type === 'required' ? (
             <Text style={Styles.errorText}>Confirm your password</Text>
+          ) : errors?.confirmPassword?.type === 'validate' ? (
+            <Text style={Styles.errorText}>Passwords does not match</Text>
           ) : null}
         </View>
       </View>
