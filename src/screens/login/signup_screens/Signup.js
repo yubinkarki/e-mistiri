@@ -36,7 +36,7 @@ export default function Signup({navigation}) {
     <ScrollView
       style={Styles.mainContainer}
       keyboardShouldPersistTaps="handled">
-      <StatusBar backgroundColor={Colors.loginBackground} />
+      <StatusBar backgroundColor={Colors.white} />
 
       <View style={Styles.topContainer}>
         <View style={Styles.mainLogoContainer}>

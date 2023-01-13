@@ -7,7 +7,7 @@ import {Colors, TextStyles} from '@app/constants';
 
 export const SignupScreenStyles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: Colors.loginBackground,
+    backgroundColor: Colors.white,
     flex: 1,
     paddingHorizontal: wp('5%'),
   },

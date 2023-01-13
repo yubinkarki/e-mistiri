@@ -5,7 +5,7 @@ import {Colors} from '@app/constants';
 
 const Styles = StyleSheet.create({
   textInput: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.inputField,
   },
 });
 
