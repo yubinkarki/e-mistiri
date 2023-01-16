@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   StatusBar,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
 import {Checkbox} from 'react-native-paper';
@@ -30,7 +31,14 @@ export default function Signup({navigation}) {
   const [checked, setChecked] = useState(false);
 
   const signupSubmitHandler = signupData => {
-    navigation.navigate('Login');
+    !checked
+      ? Alert.alert(
+          'Terms of Service',
+          'Please review and accept the Terms of Service and Privacy Policy to continue.',
+        )
+      : console.log(signupData);
+
+    // navigation.navigate('Login');
   };
 
   return (
@@ -67,11 +75,9 @@ export default function Signup({navigation}) {
             )}
           />
 
-          {errors?.email?.type === 'required' ? (
-            <Text style={Styles.errorText}>Enter your email</Text>
-          ) : errors?.email?.type === 'pattern' ? (
-            <Text style={Styles.errorText}>Enter a valid email address</Text>
-          ) : null}
+          {errors && (
+            <Text style={Styles.errorText}>{errors?.email?.message}</Text>
+          )}
         </View>
 
         <View style={Styles.inputFieldContainer}>
@@ -89,15 +95,9 @@ export default function Signup({navigation}) {
             )}
           />
 
-          {errors.fullName?.type === 'required' ? (
-            <Text style={Styles.errorText}>Enter your full name</Text>
-          ) : errors.fullName?.type === 'minLength' ? (
-            <Text style={Styles.errorText}>Too short</Text>
-          ) : errors.fullName?.type === 'pattern' ? (
-            <Text style={Styles.errorText}>
-              At least 3 letters each first and last name
-            </Text>
-          ) : null}
+          {errors && (
+            <Text style={Styles.errorText}>{errors?.fullName?.message}</Text>
+          )}
         </View>
 
         <View style={Styles.inputFieldContainer}>
@@ -117,13 +117,9 @@ export default function Signup({navigation}) {
             )}
           />
 
-          {errors?.password?.type === 'required' ? (
-            <Text style={Styles.errorText}>Enter your password</Text>
-          ) : errors?.password?.type === 'pattern' ? (
-            <Text style={Styles.errorText}>Password pattern doesn't match</Text>
-          ) : errors?.password?.type === 'minLength' ? (
-            <Text style={Styles.errorText}>Too short</Text>
-          ) : null}
+          {errors && (
+            <Text style={Styles.errorText}>{errors?.password?.message}</Text>
+          )}
         </View>
 
         <View style={Styles.inputFieldContainer}>
@@ -132,7 +128,11 @@ export default function Signup({navigation}) {
             name="confirmPassword"
             rules={{
               ...inputRules.confirmPassword,
-              validate: value => value === watch('password'),
+              validate: value => {
+                if (value !== watch('password')) {
+                  return 'Password does not match';
+                }
+              },
             }}
             render={({field: {onChange, onBlur, value}}) => (
               <InputField
@@ -146,11 +146,11 @@ export default function Signup({navigation}) {
             )}
           />
 
-          {errors?.confirmPassword?.type === 'required' ? (
-            <Text style={Styles.errorText}>Confirm your password</Text>
-          ) : errors?.confirmPassword?.type === 'validate' ? (
-            <Text style={Styles.errorText}>Passwords does not match</Text>
-          ) : null}
+          {errors && (
+            <Text style={Styles.errorText}>
+              {errors?.confirmPassword?.message}
+            </Text>
+          )}
         </View>
       </View>
 
