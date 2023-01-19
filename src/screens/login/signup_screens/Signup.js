@@ -36,9 +36,7 @@ export default function Signup({navigation}) {
           'Terms of Service',
           'Please review and accept the Terms of Service and Privacy Policy to continue.',
         )
-      : console.log(signupData);
-
-    // navigation.navigate('Login');
+      : navigation.navigate('Login');
   };
 
   return (
