@@ -38,12 +38,6 @@ export const SignupScreenStyles = StyleSheet.create({
   inputFieldContainer: {
     height: hp('9%'),
   },
-  errorText: {
-    ...TextStyles.poppinsSmallLight,
-    color: Colors.errorText,
-    paddingLeft: wp('4.4%'),
-    paddingTop: hp('0.2%'),
-  },
   privacyPolicyContainer: {
     flexDirection: 'row',
     marginTop: hp('2%'),
