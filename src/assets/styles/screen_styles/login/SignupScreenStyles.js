@@ -15,7 +15,7 @@ export const SignupScreenStyles = StyleSheet.create({
     alignItems: 'center',
   },
   mainLogoContainer: {
-    paddingTop: hp('8%'),
+    paddingTop: hp('7%'),
     paddingBottom: hp('4%'),
   },
   titleText: {
