@@ -1,3 +1,3 @@
-import {inputRules} from './InputRules';
+import {InputRules} from './InputRules';
 
-export {inputRules};
+export {InputRules};
