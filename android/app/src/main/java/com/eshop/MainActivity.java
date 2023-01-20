@@ -5,6 +5,7 @@ import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import android.os.Bundle;
 import com.zoontek.rnbootsplash.RNBootSplash;
+import com.zoontek.rnbars.RNBars;
 
 public class MainActivity extends ReactActivity {
 
@@ -21,6 +22,7 @@ public class MainActivity extends ReactActivity {
   protected void onCreate(Bundle savedInstanceState) {
     RNBootSplash.init(this); // <- initialize the splash screen
     super.onCreate(savedInstanceState); // or super.onCreate(null) with react-native-screens
+    RNBars.init(getPlainActivity(), "dark-content"); // <- initialize with initial bars styles (could be light-content)
   }
 
   /**
