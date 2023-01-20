@@ -7,9 +7,9 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
-import {useForm, Controller} from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {Checkbox} from 'react-native-paper';
-import {inputRules} from '../components';
+import {InputRules} from '../components';
 import {Colors, Images} from '@app/constants';
 import {InputField, PrimaryButton} from '@app/commons';
 import {SignupScreenStyles as Styles} from '@app/assets/styles';
@@ -18,8 +18,8 @@ export default function Signup({navigation}) {
   const {
     control,
     handleSubmit,
-    formState: {errors},
     watch,
+    formState: {errors},
   } = useForm({
     defaultValues: {
       email: '',
@@ -59,96 +59,56 @@ export default function Signup({navigation}) {
 
       <View style={Styles.formContainer}>
         <View style={Styles.inputFieldContainer}>
-          <Controller
+          <InputField
             control={control}
-            name="email"
-            rules={{...inputRules.email}}
-            render={({field: {onChange, onBlur, value}}) => (
-              <InputField
-                labelText="Email Address"
-                onBlur={onBlur}
-                onChange={onChange}
-                value={value}
-              />
-            )}
+            errors={errors}
+            inputName="email"
+            rules={InputRules.email}
+            labelText="Email Address"
+            isPassword={false}
           />
-
-          {errors && (
-            <Text style={Styles.errorText}>{errors?.email?.message}</Text>
-          )}
         </View>
 
         <View style={Styles.inputFieldContainer}>
-          <Controller
+          <InputField
             control={control}
-            name="fullName"
-            rules={{...inputRules.fullName}}
-            render={({field: {onChange, onBlur, value}}) => (
-              <InputField
-                labelText="Full Name"
-                onBlur={onBlur}
-                onChange={onChange}
-                value={value}
-              />
-            )}
+            errors={errors}
+            inputName="fullName"
+            rules={InputRules.fullName}
+            labelText="Full Name"
+            isPassword={false}
           />
-
-          {errors && (
-            <Text style={Styles.errorText}>{errors?.fullName?.message}</Text>
-          )}
         </View>
 
         <View style={Styles.inputFieldContainer}>
-          <Controller
+          <InputField
             control={control}
-            name="password"
-            rules={{...inputRules.password}}
-            render={({field: {onChange, onBlur, value}}) => (
-              <InputField
-                labelText="Create Password"
-                isPassword={true}
-                passwordIcon={true}
-                onBlur={onBlur}
-                onChange={onChange}
-                value={value}
-              />
-            )}
+            errors={errors}
+            inputName="password"
+            rules={InputRules.password}
+            labelText="Password"
+            isPassword={true}
+            passwordIcon={true}
           />
-
-          {errors && (
-            <Text style={Styles.errorText}>{errors?.password?.message}</Text>
-          )}
         </View>
 
         <View style={Styles.inputFieldContainer}>
-          <Controller
+          <InputField
             control={control}
-            name="confirmPassword"
+            errors={errors}
+            inputName="confirmPassword"
             rules={{
-              ...inputRules.confirmPassword,
+              ...InputRules.confirmPassword,
               validate: value => {
                 if (value !== watch('password')) {
                   return 'Password does not match';
                 }
               },
             }}
-            render={({field: {onChange, onBlur, value}}) => (
-              <InputField
-                labelText="Confirm Password"
-                isPassword={true}
-                passwordIcon={true}
-                onBlur={onBlur}
-                onChange={onChange}
-                value={value}
-              />
-            )}
+            labelText="Confirm Password"
+            isPassword={true}
+            passwordIcon={true}
           />
-
-          {errors && (
-            <Text style={Styles.errorText}>
-              {errors?.confirmPassword?.message}
-            </Text>
-          )}
         </View>
       </View>
 

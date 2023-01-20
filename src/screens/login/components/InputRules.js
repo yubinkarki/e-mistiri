@@ -1,43 +1,54 @@
-export const inputRules = {
+const errorMessage = {
+  signupEmailRequired: 'Please provide an email address',
+  signupEmailPattern: 'This email address is not valid',
+  signupFullNameRequired: 'Please enter your full name',
+  signupFullNameMinLength: 'Minimum 6 characters required',
+  signupPasswordRequired: 'Create a new password',
+  signupPasswordMinLength: 'Minimum 8 characters required',
+  signupPasswordPattern: 'Password too weak',
+  signupConfirmPasswordRequired: 'Please confirm your password',
+};
+
+export const InputRules = {
   email: {
     required: {
       value: true,
-      message: 'Please provide an email address',
+      message: errorMessage.signupEmailRequired,
     },
     pattern: {
       value:
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      message: 'This email address is not valid',
+      message: errorMessage.signupEmailPattern,
     },
   },
   fullName: {
     required: {
       value: true,
-      message: 'Please enter your full name',
+      message: errorMessage.signupFullNameRequired,
     },
     minLength: {
       value: 6,
-      message: 'Minimum 6 characters required',
+      message: errorMessage.signupFullNameMinLength,
     },
   },
   password: {
     required: {
       value: true,
-      message: 'Create a new password',
+      message: errorMessage.signupPasswordRequired,
     },
     minLength: {
       value: 8,
-      message: 'Minimum 8 characters required',
+      message: errorMessage.signupPasswordMinLength,
     },
     pattern: {
       value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
-      message: 'Password too weak',
+      message: errorMessage.signupPasswordPattern,
     },
   },
   confirmPassword: {
     required: {
       value: true,
-      message: 'Please confirm your password',
+      message: errorMessage.signupConfirmPasswordRequired,
     },
   },
 };
