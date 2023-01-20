@@ -1,12 +1,11 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import RNBootSplash from 'react-native-bootsplash';
 import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {AuthStack, MainStack} from '@app/routes';
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer onReady={() => RNBootSplash.hide()}>
       <GestureHandlerRootView style={{flex: 1}}>
         <AuthStack />
       </GestureHandlerRootView>
