@@ -9,11 +9,11 @@ export default function OnboardingStack() {
     <Stack.Navigator
       name="OnboardingStack"
       screenOptions={{headerShown: false}}>
-      <Stack.Screen
+      {/* <Stack.Screen
         name="SplashScreen"
         component={SplashScreen}
         options={{title: 'Welcome'}}
-      />
+      /> */}
 
       <Stack.Screen
         name="OnboardingScreen"
