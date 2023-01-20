@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StatusBar} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import SLI from 'react-native-vector-icons/SimpleLineIcons';
 import AD from 'react-native-vector-icons/AntDesign';
@@ -22,6 +22,8 @@ export default function OnboardingScreen({navigation}) {
 
   return (
     <View style={Styles.mainContainer}>
+      <StatusBar backgroundColor={Colors.splashScreenBG} />
+
       <View style={Styles.topContainer}>
         <View style={Styles.buttonContainer}>
           <View>
