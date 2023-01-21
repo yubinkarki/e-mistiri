@@ -1,6 +1,10 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SplashScreen, OnboardingScreen} from '@app/screens';
+import {
+  OnboardingScreenOne,
+  OnboardingScreenTwo,
+  OnboardingScreenThree,
+} from '@app/screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -8,17 +12,23 @@ export default function OnboardingStack() {
   return (
     <Stack.Navigator
       name="OnboardingStack"
-      screenOptions={{headerShown: false}}>
-      {/* <Stack.Screen
-        name="SplashScreen"
-        component={SplashScreen}
-        options={{title: 'Welcome'}}
-      /> */}
+      screenOptions={{headerShown: false, animation: 'slide_from_right'}}>
+      <Stack.Screen
+        name="OnboardingScreenOne"
+        component={OnboardingScreenOne}
+        options={{title: 'Onboarding'}}
+      />
 
       <Stack.Screen
-        name="OnboardingScreen"
-        component={OnboardingScreen}
-        options={{title: 'Onboarding', animation: 'slide_from_right'}}
+        name="OnboardingScreenTwo"
+        component={OnboardingScreenTwo}
+        options={{title: 'Onboarding'}}
+      />
+
+      <Stack.Screen
+        name="OnboardingScreenThree"
+        component={OnboardingScreenThree}
+        options={{title: 'Onboarding'}}
       />
     </Stack.Navigator>
   );
