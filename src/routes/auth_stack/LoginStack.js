@@ -13,7 +13,11 @@ export default function LoginStack() {
         options={{title: 'Signup'}}
       />
 
-      <Stack.Screen name="Login" component={Login} options={{title: 'Login'}} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{title: 'Login', animation: 'slide_from_right'}}
+      />
     </Stack.Navigator>
   );
 }

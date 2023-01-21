@@ -15,7 +15,7 @@ export default function AuthStack() {
       <Stack.Screen
         name="LoginStack"
         component={LoginStack}
-        options={{animation: 'slide_from_right'}}
+        options={{animation: 'slide_from_bottom'}}
       />
 
       {/* MainStack is not a part of onboarding. */}
