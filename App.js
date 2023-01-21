@@ -6,7 +6,7 @@ import {AuthStack, MainStack} from '@app/routes';
 export default function App() {
   return (
     <NavigationContainer
-      onReady={() => RNBootSplash.hide({fade: true, duration: 300})}>
+      onReady={() => RNBootSplash.hide({fade: true, duration: 200})}>
       <GestureHandlerRootView style={{flex: 1}}>
         <AuthStack />
       </GestureHandlerRootView>
