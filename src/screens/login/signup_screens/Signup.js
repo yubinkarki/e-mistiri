@@ -145,7 +145,7 @@ export default function Signup({navigation}) {
 
       <View style={Styles.signupFooterContainer}>
         <Text style={Styles.footerText}>Already have an account? </Text>
-        <TouchableOpacity onPress={signupSubmitHandler}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={Styles.footerLinkText}>Signin</Text>
         </TouchableOpacity>
       </View>
