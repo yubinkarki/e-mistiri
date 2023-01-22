@@ -1,3 +1,4 @@
 import {SignupScreenStyles} from './SignupScreenStyles';
+import {LoginScreenStyles} from './LoginScreenStyles';
 
-export {SignupScreenStyles};
+export {SignupScreenStyles, LoginScreenStyles};
