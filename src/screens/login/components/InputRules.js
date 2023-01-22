@@ -7,6 +7,8 @@ const errorMessage = {
   signupPasswordMinLength: 'Minimum 8 characters required',
   signupPasswordPattern: 'Password too weak',
   signupConfirmPasswordRequired: 'Please confirm your password',
+  loginEmailRequired: 'Please enter your email',
+  loginPasswordRequired: 'Please enter your password',
 };
 
 export const InputRules = {
@@ -49,6 +51,27 @@ export const InputRules = {
     required: {
       value: true,
       message: errorMessage.signupConfirmPasswordRequired,
+    },
+  },
+  loginEmail: {
+    required: {
+      value: true,
+      message: errorMessage.loginEmailRequired,
+    },
+    pattern: {
+      value:
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      message: errorMessage.signupEmailPattern,
+    },
+  },
+  loginPassword: {
+    required: {
+      value: true,
+      message: errorMessage.loginPasswordRequired,
+    },
+    minLength: {
+      value: 8,
+      message: errorMessage.signupPasswordMinLength,
     },
   },
 };
