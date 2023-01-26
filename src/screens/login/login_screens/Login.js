@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, StatusBar} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {InputRules} from '../components';
@@ -28,6 +28,8 @@ export default function Login({navigation}) {
       style={Styles.mainContainer}
       enableOnAndroid={false}
       keyboardShouldPersistTaps="handled">
+      <StatusBar backgroundColor={Colors.white} />
+
       <View style={Styles.topContainer}>
         <View style={Styles.mainLogoContainer}>
           <Images.mainLogoColor />
