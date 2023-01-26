@@ -14,6 +14,7 @@
     "@react-native-segmented-control/segmented-control": "^2.4.0",
     "@react-navigation/bottom-tabs": "^6.5.1",
     "@react-navigation/native-stack": "^6.9.6",
+    "@reduxjs/toolkit": "^1.9.1",
     "react": "18.1.0",
     "react-hook-form": "^7.41.3",
     "react-native": "0.70.6",
@@ -28,7 +29,8 @@
     "react-native-screens": "^3.19.0",
     "react-native-snap-carousel-v4": "^1.0.1",
     "react-native-svg": "^13.6.0",
-    "react-native-vector-icons": "^9.2.0"
+    "react-native-vector-icons": "^9.2.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
