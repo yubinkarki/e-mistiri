@@ -13,6 +13,13 @@ const initialState = {
 export const UserInfo = createSlice({
   name: 'user',
   initialState,
+  reducers: {
+    updateIsFirstLoad: state => {
+      state.isFirstLoad = false;
+    },
+  },
 });
+
+export const {updateIsFirstLoad} = UserInfo.actions;
 
 export default UserInfo.reducer;

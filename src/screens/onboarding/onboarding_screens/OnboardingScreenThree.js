@@ -1,13 +1,22 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StatusBar} from 'react-native';
+import {useDispatch} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import SLI from 'react-native-vector-icons/SimpleLineIcons';
 import AD from 'react-native-vector-icons/AntDesign';
 import {Colors} from '@app/constants';
+import {updateIsFirstLoad} from '@app/redux/slices';
 import {onboardingData} from './components';
 import {OnboardingScreenStyles as Styles} from '@app/assets/styles';
 
 export default function OnboardingScreenThree({navigation}) {
+  const dispatch = useDispatch();
+
+  const navigateToSignup = () => {
+    dispatch(updateIsFirstLoad());
+    navigation.navigate('AuthStack', {screen: 'Signup'});
+  };
+
   return (
     <View style={Styles.mainContainer}>
       <StatusBar backgroundColor={Colors.splashScreenBG} />
@@ -48,7 +57,7 @@ export default function OnboardingScreenThree({navigation}) {
         <TouchableOpacity
           style={Styles.nextButtonContainer}
           activeOpacity={0.8}
-          onPress={() => navigation.navigate('LoginStack')}>
+          onPress={navigateToSignup}>
           <LinearGradient
             style={Styles.nextButton}
             useAngle
