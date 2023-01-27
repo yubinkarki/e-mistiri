@@ -1,3 +1,3 @@
-import UserInfoSlice, {updateIsFirstLoad} from './UserInfo';
+import UserInfoSlice, {updateIsFirstLoad, updateIsSignedIn} from './UserInfo';
 
-export {UserInfoSlice, updateIsFirstLoad};
+export {UserInfoSlice, updateIsFirstLoad, updateIsSignedIn};

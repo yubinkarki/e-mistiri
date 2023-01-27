@@ -1,9 +1,11 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StatusBar} from 'react-native';
 import {useForm} from 'react-hook-form';
+import {useSelector, useDispatch} from 'react-redux';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {InputRules} from '../components';
 import {InputField, PrimaryButton} from '@app/commons';
+import {updateIsSignedIn} from '@app/redux/slices';
 import {Colors, Images} from '@app/constants';
 import {LoginScreenStyles as Styles} from '@app/assets/styles';
 
@@ -19,7 +21,11 @@ export default function Login({navigation}) {
     },
   });
 
-  const loginButtonHandler = loginData => {
+  const dispatch = useDispatch();
+
+  const loginButtonHandler = async loginData => {
+    await dispatch(updateIsSignedIn(true));
+
     navigation.navigate('MainStack');
   };
 
