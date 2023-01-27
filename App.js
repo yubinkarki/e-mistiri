@@ -11,8 +11,7 @@ export default function App() {
   const {isSignedIn} = useSelector(state => state?.user);
 
   return (
-    <NavigationContainer
-      onReady={() => RNBootSplash.hide({fade: true, duration: 200})}>
+    <NavigationContainer onReady={() => RNBootSplash.hide()}>
       <GestureHandlerRootView style={{flex: 1}}>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           {isSignedIn ? (
