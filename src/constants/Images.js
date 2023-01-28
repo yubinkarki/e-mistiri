@@ -1,6 +1,11 @@
 import MainLogo from '../assets/svg/logo/MainLogo.svg';
 import MainLogoColor from '../assets/svg/logo/MainLogoColor.svg';
 
+import Home from '../assets/svg/bottom_nav/Home.svg';
+import Cart from '../assets/svg/bottom_nav/Cart.svg';
+import Account from '../assets/svg/bottom_nav/Account.svg';
+import Shop from '../assets/svg/bottom_nav/Shop.svg';
+
 import Onboarding1 from '../assets/svg/onboarding/Onboarding1.svg';
 import Onboarding2 from '../assets/svg/onboarding/Onboarding2.svg';
 import Onboarding3 from '../assets/svg/onboarding/Onboarding3.svg';
@@ -31,4 +36,8 @@ export default {
   car: Car,
   scooter: Scooter,
   accessories: Accessories,
+  homeIcon: Home,
+  cartIcon: Cart,
+  accountIcon: Account,
+  shopIcon: Shop,
 };
