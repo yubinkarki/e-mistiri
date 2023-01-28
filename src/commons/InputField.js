@@ -25,10 +25,13 @@ export default function InputField({
   errors,
   rules,
   inputName,
+  customStyles,
   labelText,
   passwordIcon,
   isPassword = false,
+  keyboardType = 'default',
   outlineColor = 'transparent',
+  ...props
 }) {
   const [hidePassword, setHidePassword] = useState(isPassword);
   const [eyeIcon, setEyeIcon] = useState(passwordIcon);
@@ -37,7 +40,7 @@ export default function InputField({
     <>
       <Controller
         control={control}
-        rules={rules}
+        // rules={rules}
         name={inputName}
         render={({field: {onBlur, onChange, value}}) => (
           <TextInput
@@ -50,8 +53,9 @@ export default function InputField({
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            keyboardType={keyboardType}
             selectionColor={Colors.subtitleText}
-            style={Styles.textInput}
+            style={{...Styles.textInput, ...customStyles}}
             right={
               passwordIcon && (
                 <TextInput.Icon
@@ -65,6 +69,7 @@ export default function InputField({
                 />
               )
             }
+            {...props}
           />
         )}
       />
