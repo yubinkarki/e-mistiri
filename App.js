@@ -10,8 +10,14 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   const {isSignedIn} = useSelector(state => state?.user);
 
+  const hideSplash = () => {
+    setTimeout(() => {
+      RNBootSplash.hide();
+    }, 800);
+  };
+
   return (
-    <NavigationContainer onReady={() => RNBootSplash.hide()}>
+    <NavigationContainer onReady={hideSplash}>
       <GestureHandlerRootView style={{flex: 1}}>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           {isSignedIn ? (
