@@ -32,5 +32,6 @@ export const DashboardStyles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
+    marginBottom: hp('8%'),
   },
 });
