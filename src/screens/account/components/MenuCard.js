@@ -37,7 +37,13 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: hp('2%'),
+    marginBottom: hp('1%'),
+    backgroundColor: Colors.translucentBackground,
+    borderRadius: 10,
+    padding: 5,
+  },
+  rightContainer: {
+    paddingRight: 10,
   },
   leftContainer: {
     flexDirection: 'row',
