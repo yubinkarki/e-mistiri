@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StatusBar, ScrollView, FlatList} from 'react-native';
+import {View, StatusBar, ScrollView, FlatList} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {useForm} from 'react-hook-form';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
