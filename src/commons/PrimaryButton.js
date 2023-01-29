@@ -26,13 +26,14 @@ export default function PrimaryButton({
 }) {
   return (
     <Button
+      textColor={outlined ? Colors.textLink : null}
       mode={outlined ? 'outlined' : 'contained'}
       uppercase={false}
       style={{
         height: buttonHeight,
         width: buttonWidth,
         borderRadius: buttonRadius,
-        backgroundColor: Colors.textLink,
+        backgroundColor: outlined ? 'transparent' : Colors.textLink,
       }}
       labelStyle={Styles.labelStyles}
       contentStyle={Styles.contentStyles}
