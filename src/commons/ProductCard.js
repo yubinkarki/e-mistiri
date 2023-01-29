@@ -1,13 +1,12 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
-import {Colors, TextStyles} from '@app/constants';
 import {ProductCardStyles as Styles} from '@app/assets/styles';
 
 export default function ProductCard({data, onPress}) {
   return (
     <TouchableOpacity
       style={Styles.mainContainer}
-      activeOpacity={0.6}
+      activeOpacity={0.84}
       onPress={onPress}>
       <View style={Styles.imageContainer}>{data.image}</View>
 
