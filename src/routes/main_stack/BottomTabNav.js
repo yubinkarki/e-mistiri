@@ -22,6 +22,7 @@ export default function BottomTabNav() {
         headerTitleAlign: 'center',
         headerTitleStyle: Styles.headerTitle,
         headerStyle: Styles.header,
+        // tabBarHideOnKeyboard: true,
       })}>
       <Tab.Screen
         name="DashboardStack"
