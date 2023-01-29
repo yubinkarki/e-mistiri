@@ -27,8 +27,8 @@ export default function Profile() {
           <PrimaryButton
             buttonLabel="Edit Profile"
             buttonHeight={50}
-            buttonWidth={180}
-            buttonRadius={110}
+            buttonWidth={170}
+            buttonRadius={30}
             onPressHandler={editProfileHandler}
           />
         </View>
