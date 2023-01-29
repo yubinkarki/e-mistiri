@@ -14,6 +14,7 @@ export default {
   inputFieldIcon: '#868686',
   inputField: '#f5f5f5',
   errorText: '#EE1D0D',
+  menuIconBackground: '#EBECF5',
   checkBox: '#888888',
   footerText: '#635555',
   productCardSubtitle: '#828282',
