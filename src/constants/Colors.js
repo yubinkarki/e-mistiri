@@ -20,4 +20,5 @@ export default {
   productCardSubtitle: '#828282',
   dashboardAdTitle: '#E1C589',
   translucentBackground: 'rgba(244, 244, 244, 0.3)',
+  overlaySpinnerBackground: 'rgba(0, 0, 0, 0.7)',
 };
