@@ -45,6 +45,7 @@ export const AccountStyles = StyleSheet.create({
   name: {
     ...TextStyles.poppinsExtraLargeBold,
     color: Colors.black,
+    fontSize: 22,
   },
   scrollContainer: {
     flex: 1, // Remove this to enable scroll.
