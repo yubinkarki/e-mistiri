@@ -1,11 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StatusBar} from 'react-native';
 import {useForm} from 'react-hook-form';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Spinner from 'react-native-loading-spinner-overlay';
+
 import {InputRules} from '../components';
 import {InputField, PrimaryButton} from '@app/commons';
 import {updateIsSignedIn} from '@app/redux/slices';
+import {WaitTimeout} from '@app/utils';
 import {Colors, Images} from '@app/constants';
 import {LoginScreenStyles as Styles} from '@app/assets/styles';
 
@@ -23,10 +26,17 @@ export default function Login({navigation}) {
 
   const dispatch = useDispatch();
 
-  const loginButtonHandler = async loginData => {
-    await dispatch(updateIsSignedIn(true));
+  const [fetching, setFetching] = useState(false);
 
-    navigation.navigate('MainStack');
+  const loginButtonHandler = loginData => {
+    setFetching(true);
+
+    WaitTimeout(1500).then(() => {
+      setFetching(false);
+
+      // Will navigate to MainStack when value is changed.
+      dispatch(updateIsSignedIn(true));
+    });
   };
 
   return (
@@ -36,6 +46,13 @@ export default function Login({navigation}) {
       keyboardShouldPersistTaps="handled">
       <StatusBar backgroundColor={Colors.white} />
 
+      <Spinner
+        visible={fetching}
+        color={Colors.white}
+        overlayColor={Colors.overlaySpinnerBackground}
+        animation="fade"
+      />
+
       <View style={Styles.topContainer}>
         <View style={Styles.mainLogoContainer}>
           <Images.mainLogoColor />
@@ -43,7 +60,7 @@ export default function Login({navigation}) {
 
         <Text style={Styles.titleText}>Welcome Back</Text>
 
-        <Text style={Styles.subtitleText}>Lorem ipsum dolor sit amet</Text>
+        <Text style={Styles.subtitleText}>Please login to get started</Text>
       </View>
 
       <View style={Styles.formContainer}>
@@ -69,7 +86,10 @@ export default function Login({navigation}) {
           />
         </View>
 
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => {}}
+          style={Styles.forgotPasswordContainer}
+          activeOpacity={0.5}>
           <Text style={Styles.forgotPasswordLink}>Forgot password?</Text>
         </TouchableOpacity>
 

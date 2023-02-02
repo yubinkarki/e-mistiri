@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, Image, ScrollView, Share} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {useDispatch} from 'react-redux';
+import Spinner from 'react-native-loading-spinner-overlay';
+
 import {
   RewardPointCard,
   MenuItemData,
@@ -8,7 +11,9 @@ import {
   BottomPopModal,
   LogoutCard,
 } from './components';
-import {Images} from '@app/constants';
+import {Colors, Images} from '@app/constants';
+import {WaitTimeout} from '@app/utils';
+import {updateIsSignedIn} from '@app/redux/slices';
 import {AccountStyles as Styles} from '@app/assets/styles';
 
 export default function Account({navigation}) {
@@ -27,7 +32,10 @@ export default function Account({navigation}) {
     }
   };
 
+  const dispatch = useDispatch();
+
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [fetching, setFetching] = useState(false);
 
   const toggleModal = () => {
     setIsModalVisible(!isModalVisible);
@@ -53,10 +61,26 @@ export default function Account({navigation}) {
     }
   };
 
-  const logoutHandler = () => {};
+  const logoutHandler = async () => {
+    setFetching(true);
+
+    WaitTimeout(1500).then(() => {
+      setFetching(false);
+
+      // Will navigate to AuthStack when value is changed.
+      dispatch(updateIsSignedIn(false));
+    });
+  };
 
   return (
     <View style={Styles.mainContainer}>
+      <Spinner
+        visible={fetching}
+        color={Colors.white}
+        overlayColor={Colors.overlaySpinnerBackground}
+        animation="fade"
+      />
+
       <LinearGradient
         start={{x: 0.5, y: 0.1}}
         colors={['#FFF', '#A9ACD3']}
