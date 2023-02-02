@@ -1,14 +1,21 @@
+import {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import RNBootSplash from 'react-native-bootsplash';
 import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
 import {AuthStack, MainStack} from '@app/routes';
+import {BlurInputFocus} from '@app/utils';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const {isSignedIn} = useSelector(state => state?.user);
+
+  useEffect(() => {
+    BlurInputFocus();
+  }, []);
 
   const hideSplash = () => {
     setTimeout(() => {
