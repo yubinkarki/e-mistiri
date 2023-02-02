@@ -22,10 +22,6 @@ export default function Dashboard() {
     formState: {errors},
   } = useForm();
 
-  useEffect(() => {
-    BlurAllInputFocus();
-  }, []);
-
   const [vehicleCategory, setVehicleCategory] = useState(VehicleCategoryData);
 
   const renderCarouselItem = ({item}) => (
