@@ -31,7 +31,7 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    marginTop: hp('4%'),
+    marginTop: hp('3.5%'),
   },
   pointText: {
     ...TextStyles.poppinsExtraLargeNormal,
