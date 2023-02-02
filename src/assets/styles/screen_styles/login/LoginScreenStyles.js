@@ -54,10 +54,13 @@ export const LoginScreenStyles = StyleSheet.create({
     ...TextStyles.poppinsRegularLight,
     color: Colors.textLink,
   },
+  forgotPasswordContainer: {
+    marginTop: hp('4%'),
+    alignSelf: 'center',
+  },
   forgotPasswordLink: {
     ...TextStyles.poppinsLargeLight,
     color: Colors.textLink,
-    alignSelf: 'center',
-    paddingTop: hp('4%'),
+    textAlign: 'center',
   },
 });
