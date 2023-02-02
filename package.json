@@ -24,6 +24,7 @@
     "react-native-gesture-handler": "^2.9.0",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-linear-gradient": "^2.6.2",
+    "react-native-loading-spinner-overlay": "^3.0.1",
     "react-native-paper": "^5.0.2",
     "react-native-reanimated": "^2.14.4",
     "react-native-responsive-screen": "^1.4.2",
