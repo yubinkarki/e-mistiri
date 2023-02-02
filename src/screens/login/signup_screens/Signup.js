@@ -53,7 +53,7 @@ export default function Signup({navigation}) {
         <Text style={Styles.titleText}>Create a New Account</Text>
 
         <Text style={Styles.subtitleText}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          Create an account and get started with a new experience of shopping
         </Text>
       </View>
 
@@ -146,7 +146,7 @@ export default function Signup({navigation}) {
       <View style={Styles.signupFooterContainer}>
         <Text style={Styles.footerText}>Already have an account? </Text>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-          <Text style={Styles.footerLinkText}>Signin</Text>
+          <Text style={Styles.footerLinkText}>Login</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
