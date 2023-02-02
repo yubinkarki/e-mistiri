@@ -40,7 +40,7 @@ export default function InputField({
     <>
       <Controller
         control={control}
-        // rules={rules}
+        rules={rules}
         name={inputName}
         render={({field: {onBlur, onChange, value}}) => (
           <TextInput

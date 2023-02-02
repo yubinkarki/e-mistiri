@@ -1,11 +1,11 @@
 const errorMessage = {
   signupEmailRequired: 'Please provide an email address',
-  signupEmailPattern: 'This email address is not valid',
+  signupEmailPattern: 'This email is not valid',
   signupFullNameRequired: 'Please enter your full name',
   signupFullNameMinLength: 'Minimum 6 characters required',
   signupPasswordRequired: 'Create a new password',
-  signupPasswordMinLength: 'Minimum 8 characters required',
-  signupPasswordPattern: 'Password too weak',
+  signupPasswordMinLength: 'Minimum 5 characters required',
+  signupPasswordPattern: 'Must contain 1 number, letter and special character',
   signupConfirmPasswordRequired: 'Please confirm your password',
   loginEmailRequired: 'Please enter your email',
   loginPasswordRequired: 'Please enter your password',
@@ -39,11 +39,12 @@ export const InputRules = {
       message: errorMessage.signupPasswordRequired,
     },
     minLength: {
-      value: 8,
+      value: 5,
       message: errorMessage.signupPasswordMinLength,
     },
     pattern: {
-      value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+      // Uppercase, lowercase, number, special character -> /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
+      value: /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{5,}$/,
       message: errorMessage.signupPasswordPattern,
     },
   },
@@ -70,7 +71,7 @@ export const InputRules = {
       message: errorMessage.loginPasswordRequired,
     },
     minLength: {
-      value: 8,
+      value: 5,
       message: errorMessage.signupPasswordMinLength,
     },
   },
