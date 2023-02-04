@@ -7,10 +7,8 @@ import {Images} from '@app/constants';
 import {UserInfoCard} from './components';
 import {ProfileStyles as Styles} from '@app/assets/styles';
 
-export default function Profile() {
+export default function Profile({navigation}) {
   const {userInfo} = useSelector(state => state?.user || {});
-
-  const editProfileHandler = () => {};
 
   return (
     <View style={Styles.mainContainer}>
@@ -37,7 +35,7 @@ export default function Profile() {
             buttonHeight={50}
             buttonWidth={170}
             buttonRadius={30}
-            onPressHandler={editProfileHandler}
+            onPressHandler={() => navigation.navigate('EditProfile')}
           />
         </View>
       </View>
