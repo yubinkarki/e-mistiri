@@ -4,10 +4,7 @@ import axios from 'axios';
 const initialState = {
   isFirstLoad: true,
   isSignedIn: false,
-  signupResponse: {},
-  authToken: '',
-  errors: {},
-  fetching: false,
+  userInfo: {},
 };
 
 export const UserInfo = createSlice({
@@ -20,9 +17,13 @@ export const UserInfo = createSlice({
     updateIsSignedIn: (state, action) => {
       state.isSignedIn = action.payload;
     },
+    updateUserInfo: (state, action) => {
+      state.userInfo = action.payload;
+    },
   },
 });
 
-export const {updateIsFirstLoad, updateIsSignedIn} = UserInfo.actions;
+export const {updateIsFirstLoad, updateIsSignedIn, updateUserInfo} =
+  UserInfo.actions;
 
 export default UserInfo.reducer;

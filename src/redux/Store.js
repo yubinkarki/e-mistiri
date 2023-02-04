@@ -6,7 +6,7 @@ import {UserInfoSlice} from './slices';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['isSignedIn', 'isFirstLoad', 'authToken', 'signupResponse'], // State name in slice.
+  whitelist: ['isSignedIn', 'isFirstLoad', 'userInfo'], // State name in slice.
 };
 
 const rootReducer = combineReducers({
