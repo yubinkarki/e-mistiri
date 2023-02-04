@@ -1,11 +1,15 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import {useSelector} from 'react-redux';
+
 import {PrimaryButton} from '@app/commons';
 import {Images} from '@app/constants';
 import {UserInfoCard} from './components';
 import {ProfileStyles as Styles} from '@app/assets/styles';
 
 export default function Profile() {
+  const {userInfo} = useSelector(state => state?.user || {});
+
   const editProfileHandler = () => {};
 
   return (
@@ -16,11 +20,15 @@ export default function Profile() {
         </View>
 
         <View style={Styles.fullNameContainer}>
-          <Text style={Styles.fullName}>Chris Brown</Text>
+          <Text style={Styles.fullName}>
+            {userInfo?.fullName || 'Chris Brown'}
+          </Text>
         </View>
 
         <View style={Styles.emailContainer}>
-          <Text style={Styles.email}>chris@brown.com</Text>
+          <Text style={Styles.email}>
+            {userInfo?.email || 'chris@brown.com'}
+          </Text>
         </View>
 
         <View style={Styles.buttonContainer}>
@@ -36,10 +44,10 @@ export default function Profile() {
 
       <View style={Styles.botContainer}>
         <UserInfoCard
-          fullName="Chris Brown"
-          phoneNumber={9808382848}
-          email="chris@brown.com"
-          address="Hollywood, USA"
+          fullName={userInfo?.fullName || 'Chris Brown'}
+          phoneNumber={userInfo?.phone || 9808382848}
+          email={userInfo?.email || 'chris@brown.com'}
+          address={userInfo?.address || 'Hollywood, USA'}
         />
       </View>
     </View>

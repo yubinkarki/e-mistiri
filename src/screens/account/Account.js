@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View, Text, Image, ScrollView, Share} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import {
@@ -13,7 +13,7 @@ import {
 } from './components';
 import {Colors, Images} from '@app/constants';
 import {WaitTimeout} from '@app/utils';
-import {updateIsSignedIn} from '@app/redux/slices';
+import {updateIsSignedIn, updateUserInfo} from '@app/redux/slices';
 import {AccountStyles as Styles} from '@app/assets/styles';
 
 export default function Account({navigation}) {
@@ -33,6 +33,8 @@ export default function Account({navigation}) {
   };
 
   const dispatch = useDispatch();
+
+  const {userInfo} = useSelector(state => state?.user || {});
 
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [fetching, setFetching] = useState(false);
@@ -70,6 +72,8 @@ export default function Account({navigation}) {
       // Will navigate to AuthStack when value is changed.
       dispatch(updateIsSignedIn(false));
 
+      dispatch(updateUserInfo({}));
+
       ShowToast({
         type: 'success',
         title: 'Logged out successfully',
@@ -101,11 +105,13 @@ export default function Account({navigation}) {
         </View>
 
         <View style={Styles.nameContainer}>
-          <Text style={Styles.name}>Chris Brown</Text>
+          <Text style={Styles.name}>{userInfo?.fullName || 'Chris Brown'}</Text>
         </View>
 
         <View style={Styles.emailContainer}>
-          <Text style={Styles.email}>chris@brown.com</Text>
+          <Text style={Styles.email}>
+            {userInfo?.email || 'chris@brown.com'}
+          </Text>
         </View>
 
         <View>
