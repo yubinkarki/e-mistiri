@@ -11,6 +11,7 @@ const initialState = {
 
 const BASE_URL = 'https://c588-103-41-172-114.in.ngrok.io';
 
+// Actions have been omitted in this front-end only app.
 export const signupAction = createAsyncThunk(
   'post/signup',
   async ({userData, apiEndpoint}, {rejectWithValue, dispatch, getState}) => {
