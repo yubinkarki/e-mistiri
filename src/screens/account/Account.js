@@ -13,7 +13,7 @@ import {
 } from './components';
 import {Colors, Images} from '@app/constants';
 import {WaitTimeout} from '@app/utils';
-import {updateIsSignedIn, updateUserInfo} from '@app/redux/slices';
+import {logoutUser, updateIsSignedIn} from '@app/redux/slices';
 import {AccountStyles as Styles} from '@app/assets/styles';
 
 export default function Account({navigation}) {
@@ -69,10 +69,7 @@ export default function Account({navigation}) {
     WaitTimeout(800).then(() => {
       setFetching(false);
 
-      // Will navigate to AuthStack when value is changed.
-      dispatch(updateIsSignedIn(false));
-
-      dispatch(updateUserInfo({}));
+      dispatch(logoutUser());
 
       ShowToast({
         type: 'success',
