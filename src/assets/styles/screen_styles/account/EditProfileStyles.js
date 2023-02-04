@@ -39,6 +39,7 @@ export const EditProfileStyles = StyleSheet.create({
   },
   inputContainer: {
     paddingHorizontal: wp('6%'),
+    marginTop: hp('2%'),
   },
   inputLabel: {
     ...TextStyles.poppinsLargeNormal,
@@ -47,6 +48,6 @@ export const EditProfileStyles = StyleSheet.create({
   },
   updateButtonContainer: {
     alignItems: 'center',
-    paddingVertical: hp('8%'),
+    paddingVertical: hp('6%'),
   },
 });
