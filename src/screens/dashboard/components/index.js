@@ -5,7 +5,6 @@ import VehicleCategoryCard from './VehicleCategoryCard';
 import SegmentedProductCategory from './SegmentedProductCategory';
 import AdData from './AdData';
 import VehicleCategoryData from './VehicleCategoryData';
-import ProductData from './ProductData';
 
 export {
   AdCarouselItem,
@@ -15,5 +14,4 @@ export {
   VehicleCategoryData,
   VehicleCategoryCard,
   SegmentedProductCategory,
-  ProductData,
 };

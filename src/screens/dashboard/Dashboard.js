@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {View, StatusBar, ScrollView, FlatList} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {useForm} from 'react-hook-form';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {Colors, Images, BlurAllInputFocus} from '@app/constants';
+import {useSelector} from 'react-redux';
+
+import {Colors, Images} from '@app/constants';
 import {InputField, FilterButton, ProductCard} from '@app/commons';
 import {
   AdCarouselItem,
@@ -12,7 +14,6 @@ import {
   VehicleCategoryCard,
   VehicleCategoryData,
   SegmentedProductCategory,
-  ProductData,
 } from './components';
 import {DashboardStyles as Styles} from '@app/assets/styles';
 
@@ -21,6 +22,8 @@ export default function Dashboard() {
     control,
     formState: {errors},
   } = useForm();
+
+  const {allProducts} = useSelector(state => state?.product || {});
 
   const [vehicleCategory, setVehicleCategory] = useState(VehicleCategoryData);
 
@@ -94,7 +97,7 @@ export default function Dashboard() {
         </View>
 
         <View style={Styles.productListContainer}>
-          {ProductData.map(item => (
+          {allProducts.map(item => (
             <ProductCard key={item.id} data={item} onPress={() => {}} />
           ))}
         </View>
