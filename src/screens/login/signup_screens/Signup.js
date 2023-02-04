@@ -14,7 +14,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 
 import {InputRules} from '../components';
 import {Colors, Images} from '@app/constants';
-import {ShowToast, WaitTimeout} from '@app/utils';
+import {ShowToast, WaitTimeout, CapitalizeFirstLetter} from '@app/utils';
 import {updateIsSignedIn, updateUserInfo} from '@app/redux/slices';
 import {InputField, PrimaryButton} from '@app/commons';
 import {SignupScreenStyles as Styles} from '@app/assets/styles';
@@ -60,8 +60,8 @@ export default function Signup({navigation}) {
 
   const signupSubmitHandler = signupData => {
     const userData = {
-      email: signupData.email,
-      fullName: signupData.fullName,
+      email: signupData.email.trim().toLowerCase(),
+      fullName: CapitalizeFirstLetter(signupData.fullName.toLowerCase()),
       password: signupData.password,
     };
 
