@@ -9,6 +9,10 @@ const errorMessage = {
   signupConfirmPasswordRequired: 'Please confirm your password',
   loginEmailRequired: 'Please enter your email',
   loginPasswordRequired: 'Please enter your password',
+  editProfileFullNameRequired: 'Full name can not be blank',
+  editProfilePhoneRequired: 'Phone number can not be blank',
+  editProfilePhoneMinLength: 'Minimum 10 numbers',
+  editProfilePhoneMaxLength: 'Maximum 14 numbers',
 };
 
 export const InputRules = {
@@ -73,6 +77,26 @@ export const InputRules = {
     minLength: {
       value: 5,
       message: errorMessage.signupPasswordMinLength,
+    },
+  },
+  editProfileFullName: {
+    required: {
+      value: true,
+      message: errorMessage.editProfileFullNameRequired,
+    },
+  },
+  editProfilePhone: {
+    required: {
+      value: true,
+      message: errorMessage.editProfilePhoneRequired,
+    },
+    minLength: {
+      value: 10,
+      message: errorMessage.editProfilePhoneMinLength,
+    },
+    maxLength: {
+      value: 14,
+      message: errorMessage.editProfilePhoneMaxLength,
     },
   },
 };
