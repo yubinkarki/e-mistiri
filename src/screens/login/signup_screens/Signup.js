@@ -7,10 +7,15 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
 import {Checkbox} from 'react-native-paper';
+import Spinner from 'react-native-loading-spinner-overlay';
+
 import {InputRules} from '../components';
 import {Colors, Images} from '@app/constants';
+import {ShowToast, WaitTimeout} from '@app/utils';
+import {updateIsSignedIn, updateUserInfo} from '@app/redux/slices';
 import {InputField, PrimaryButton} from '@app/commons';
 import {SignupScreenStyles as Styles} from '@app/assets/styles';
 
@@ -28,15 +33,44 @@ export default function Signup({navigation}) {
       confirmPassword: '',
     },
   });
+
+  const dispatch = useDispatch();
+
   const [checked, setChecked] = useState(false);
+  const [fetching, setFetching] = useState(false);
+
+  const signupAction = userData => {
+    setFetching(true);
+
+    WaitTimeout(1000).then(() => {
+      setFetching(false);
+
+      // Will navigate to MainStack when value is changed.
+      dispatch(updateIsSignedIn(true));
+
+      dispatch(updateUserInfo(userData));
+
+      ShowToast({
+        type: 'success',
+        title: 'Account created successfully',
+        subtitle: 'Have fun using E-Mistiri',
+      });
+    });
+  };
 
   const signupSubmitHandler = signupData => {
+    const userData = {
+      email: signupData.email,
+      fullName: signupData.fullName,
+      password: signupData.password,
+    };
+
     !checked
       ? Alert.alert(
           'Terms of Service',
           'Please review and accept the Terms of Service and Privacy Policy to continue.',
         )
-      : navigation.navigate('Login');
+      : signupAction(userData);
   };
 
   return (
@@ -44,6 +78,13 @@ export default function Signup({navigation}) {
       style={Styles.mainContainer}
       keyboardShouldPersistTaps="handled">
       <StatusBar backgroundColor={Colors.white} />
+
+      <Spinner
+        visible={fetching}
+        color={Colors.white}
+        overlayColor={Colors.overlaySpinnerBackground}
+        animation="fade"
+      />
 
       <View style={Styles.topContainer}>
         <View style={Styles.mainLogoContainer}>

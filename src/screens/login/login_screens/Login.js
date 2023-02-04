@@ -8,7 +8,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import {InputRules} from '../components';
 import {InputField, PrimaryButton} from '@app/commons';
 import {updateIsSignedIn} from '@app/redux/slices';
-import {WaitTimeout} from '@app/utils';
+import {ShowToast, WaitTimeout} from '@app/utils';
 import {Colors, Images} from '@app/constants';
 import {LoginScreenStyles as Styles} from '@app/assets/styles';
 
@@ -31,11 +31,17 @@ export default function Login({navigation}) {
   const loginButtonHandler = loginData => {
     setFetching(true);
 
-    WaitTimeout(1500).then(() => {
+    WaitTimeout(1000).then(() => {
       setFetching(false);
 
       // Will navigate to MainStack when value is changed.
       dispatch(updateIsSignedIn(true));
+
+      ShowToast({
+        type: 'success',
+        title: 'Logged in successfully',
+        subtitle: 'Have fun using E-Mistiri',
+      });
     });
   };
 
