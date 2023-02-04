@@ -64,11 +64,18 @@ export default function Account({navigation}) {
   const logoutHandler = async () => {
     setFetching(true);
 
-    WaitTimeout(1500).then(() => {
+    WaitTimeout(800).then(() => {
       setFetching(false);
 
       // Will navigate to AuthStack when value is changed.
       dispatch(updateIsSignedIn(false));
+
+      ShowToast({
+        type: 'success',
+        title: 'Logged out successfully',
+        subtitle: 'Please login to continue',
+        position: 'bottom',
+      });
     });
   };
 
