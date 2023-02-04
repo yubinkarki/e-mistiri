@@ -19,6 +19,8 @@ export default {
   footerText: '#635555',
   productCardSubtitle: '#828282',
   dashboardAdTitle: '#E1C589',
+  editProfileInputLabel: '#6E7489',
+  inputFieldOutline: '#C4C7D0',
   translucentBackground: 'rgba(244, 244, 244, 0.3)',
   overlaySpinnerBackground: 'rgba(0, 0, 0, 0.7)',
 };
