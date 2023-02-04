@@ -1,9 +1,10 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import BottomTabNav from './BottomTabNav';
-import {Profile} from '@app/screens';
-import {BackButton} from '@app/commons';
 import {StyleSheet} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+import BottomTabNav from './BottomTabNav';
+import {Profile, EditProfile} from '@app/screens';
+import {BackButton} from '@app/commons';
 import {Colors, TextStyles} from '@app/constants';
 
 const Stack = createNativeStackNavigator();
@@ -33,6 +34,18 @@ export default function MainStack() {
             <BackButton {...props} onPress={() => navigation.goBack()} />
           ),
           animation: 'slide_from_right',
+        })}
+      />
+
+      <Stack.Screen
+        name="EditProfile"
+        component={EditProfile}
+        options={({navigation}) => ({
+          headerLeft: props => (
+            <BackButton {...props} onPress={() => navigation.goBack()} />
+          ),
+          animation: 'slide_from_right',
+          headerTitle: 'Edit Profile',
         })}
       />
     </Stack.Navigator>
