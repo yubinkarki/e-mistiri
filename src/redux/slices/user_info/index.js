@@ -2,7 +2,7 @@ import UserInfoSlice, {
   updateIsFirstLoad,
   updateIsSignedIn,
   updateUserInfo,
-  signupAction,
+  logoutUser,
 } from './UserInfo';
 
 export {
@@ -10,5 +10,5 @@ export {
   updateIsFirstLoad,
   updateIsSignedIn,
   updateUserInfo,
-  signupAction,
+  logoutUser,
 };

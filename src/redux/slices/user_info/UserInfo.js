@@ -51,12 +51,16 @@ export const UserInfo = createSlice({
       state.isSignedIn = action.payload;
     },
     updateUserInfo: (state, action) => {
-      state.userInfo = action.payload;
+      state.userInfo = {...state.userInfo, ...action.payload};
+    },
+    logoutUser: state => {
+      state.userInfo = {};
+      state.isSignedIn = false;
     },
   },
 });
 
-export const {updateIsFirstLoad, updateIsSignedIn, updateUserInfo} =
+export const {updateIsFirstLoad, updateIsSignedIn, updateUserInfo, logoutUser} =
   UserInfo.actions;
 
 export default UserInfo.reducer;
