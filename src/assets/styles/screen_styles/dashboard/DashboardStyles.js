@@ -10,11 +10,15 @@ export const DashboardStyles = StyleSheet.create({
     backgroundColor: Colors.white,
     flex: 1,
   },
+  filterButtonContainer: {
+    marginTop: hp('0.8%'),
+    marginLeft: wp('3%'),
+  },
   searchContainer: {
     flexDirection: 'row',
     marginVertical: hp('1%'),
-    paddingHorizontal: wp('4%'),
-    justifyContent: 'space-between',
+    // paddingHorizontal: wp('4%'),
+    justifyContent: 'center',
   },
   carouselContainer: {
     marginTop: hp('1.5%'),
@@ -24,7 +28,7 @@ export const DashboardStyles = StyleSheet.create({
   },
   segmentedButtonContainer: {
     marginTop: hp('4%'),
-    paddingHorizontal: wp('4%'),
+    paddingHorizontal: wp('5%'),
   },
   productListContainer: {
     marginTop: hp('3.2%'),
