@@ -63,11 +63,13 @@ export default function Dashboard() {
           errors={errors}
           inputName="search"
           labelText="Search for products"
-          customStyles={{width: wp('76%')}}
+          customStyles={{width: wp('70%')}}
           left={<TextInput.Icon icon={Images.searchIcon} />}
         />
 
-        <FilterButton />
+        <View style={Styles.filterButtonContainer}>
+          <FilterButton />
+        </View>
       </View>
 
       <ScrollView
