@@ -17,6 +17,8 @@
     "@react-navigation/native-stack": "^6.9.6",
     "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.4",
+    "lodash.camelcase": "^4.3.0",
+    "lodash.mapkeys": "^4.6.0",
     "react": "18.1.0",
     "react-hook-form": "^7.42.1",
     "react-native": "0.70.6",
