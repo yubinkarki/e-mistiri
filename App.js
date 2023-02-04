@@ -4,6 +4,7 @@ import RNBootSplash from 'react-native-bootsplash';
 import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Toast from 'react-native-toast-message';
 
 import {AuthStack, MainStack} from '@app/routes';
 import {BlurInputFocus} from '@app/utils';
@@ -17,14 +18,8 @@ export default function App() {
     BlurInputFocus();
   }, []);
 
-  const hideSplash = () => {
-    setTimeout(() => {
-      RNBootSplash.hide();
-    }, 800);
-  };
-
   return (
-    <NavigationContainer onReady={hideSplash}>
+    <NavigationContainer onReady={() => RNBootSplash.hide()}>
       <GestureHandlerRootView style={{flex: 1}}>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           {isSignedIn ? (
@@ -33,6 +28,8 @@ export default function App() {
             <Stack.Screen name="AuthStack" component={AuthStack} />
           )}
         </Stack.Navigator>
+
+        <Toast />
       </GestureHandlerRootView>
     </NavigationContainer>
   );
