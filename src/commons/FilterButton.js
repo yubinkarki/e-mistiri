@@ -23,7 +23,6 @@ const Styles = StyleSheet.create({
     borderRadius: 10,
     width: wp('13%'),
     height: hp('6.2%'),
-    marginTop: hp('0.8%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
