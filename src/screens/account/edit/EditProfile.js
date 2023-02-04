@@ -1,16 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
 import Feather from 'react-native-vector-icons/Feather';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import Spinner from 'react-native-loading-spinner-overlay';
 
-import {EditProfileStyles as Styles} from '@app/assets/styles';
+import {InputRules} from '@app/screens/login';
 import {Colors, Images} from '@app/constants';
 import {InputField, PrimaryButton} from '@app/commons';
+import {CapitalizeFirstLetter, ShowToast, WaitTimeout} from '@app/utils';
+import {EditProfileStyles as Styles} from '@app/assets/styles';
+import {updateUserInfo} from '@app/redux/slices';
 
-export default function EditProfile() {
+export default function EditProfile({navigation}) {
   const {
     control,
     handleSubmit,
@@ -18,7 +22,10 @@ export default function EditProfile() {
     formState: {errors},
   } = useForm();
 
+  const dispatch = useDispatch();
+
   const [profileImage, setProfileImage] = useState({});
+  const [fetching, setFetching] = useState(false);
 
   const {userInfo} = useSelector(state => state?.user || {});
 
@@ -34,12 +41,45 @@ export default function EditProfile() {
 
   const changeImageHandler = () => {};
 
-  const updateProfileHandler = () => {};
+  const updateAction = userData => {
+    setFetching(true);
+
+    WaitTimeout(1000).then(() => {
+      dispatch(updateUserInfo(userData));
+
+      setFetching(false);
+
+      navigation.goBack();
+
+      ShowToast({
+        type: 'success',
+        title: 'Update success',
+        subtitle: 'Information updated successfully',
+        position: 'bottom',
+      });
+    });
+  };
+
+  const updateProfileHandler = data => {
+    const userData = {
+      fullName: CapitalizeFirstLetter(data.fullName.toLowerCase()),
+      phone: data.phone.trim(),
+    };
+
+    updateAction(userData);
+  };
 
   return (
     <KeyboardAwareScrollView
       keyboardShouldPersistTaps="handled"
       style={Styles.mainContainer}>
+      <Spinner
+        visible={fetching}
+        color={Colors.white}
+        overlayColor={Colors.overlaySpinnerBackground}
+        animation="fade"
+      />
+
       <View style={Styles.imageContainer}>
         <Image
           style={Styles.image}
@@ -70,6 +110,7 @@ export default function EditProfile() {
             errors={errors}
             inputName="fullName"
             outlineColor={Colors.inputFieldOutline}
+            rules={InputRules.editProfileFullName}
           />
         </View>
 
@@ -82,6 +123,7 @@ export default function EditProfile() {
             inputName="phone"
             outlineColor={Colors.inputFieldOutline}
             keyboardType="numeric"
+            rules={InputRules.editProfilePhone}
           />
         </View>
 
