@@ -23,4 +23,5 @@ export default {
   inputFieldOutline: '#C4C7D0',
   translucentBackground: 'rgba(244, 244, 244, 0.3)',
   overlaySpinnerBackground: 'rgba(0, 0, 0, 0.7)',
+  modalBackdrop: 'rgba(0, 0, 0, 0.3)',
 };
