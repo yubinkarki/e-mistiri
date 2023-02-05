@@ -1,5 +1,6 @@
-import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
+import {Colors} from '@app/constants';
 import React from 'react';
+import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
 
 export default function BottomPopModal({
   isModalVisible,
@@ -9,9 +10,10 @@ export default function BottomPopModal({
 }) {
   return (
     <Modal
-      animationType="slide"
-      transparent={true}
+      animationType="fade"
       visible={isModalVisible}
+      transparent={true}
+      statusBarTranslucent={true}
       onRequestClose={toggleModal}>
       <TouchableOpacity
         activeOpacity={1}
@@ -27,5 +29,6 @@ const Styles = StyleSheet.create({
   backdropContainer: {
     flex: 1,
     justifyContent: 'flex-end',
+    backgroundColor: Colors.modalBackdrop,
   },
 });
