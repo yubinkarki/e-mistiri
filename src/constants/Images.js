@@ -35,6 +35,11 @@ import MyInformation from '../assets/svg/account/MyInformation.svg';
 import Settings from '../assets/svg/account/Settings.svg';
 import Share from '../assets/svg/account/Share.svg';
 import RightArrow from '../assets/svg/account/RightArrow.svg';
+import ChangeLanguage from '../assets/svg/account/ChangeLanguage.svg';
+import ChangePassword from '../assets/svg/account/ChangePassword.svg';
+import DarkMode from '../assets/svg/account/DarkMode.svg';
+import Notification from '../assets/svg/account/Notification.svg';
+import Privacy from '../assets/svg/account/Privacy.svg';
 
 export default {
   mainLogo: MainLogo,
@@ -63,4 +68,9 @@ export default {
   settings: Settings,
   share: Share,
   rightArrow: RightArrow,
+  changeLanguage: ChangeLanguage,
+  changePassword: ChangePassword,
+  darkMode: DarkMode,
+  notification: Notification,
+  privacy: Privacy,
 };
