@@ -23,7 +23,7 @@ export default function MenuCard({
 
         <View style={Styles.textContainer}>
           <Text style={Styles.title}>{title}</Text>
-          <Text style={Styles.subtitle}>{subtitle}</Text>
+          {subtitle && <Text style={Styles.subtitle}>{subtitle}</Text>}
         </View>
       </View>
 
