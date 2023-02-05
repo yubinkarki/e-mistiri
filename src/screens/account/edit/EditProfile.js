@@ -10,9 +10,10 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import {InputRules} from '@app/screens/login';
 import {Colors, Images} from '@app/constants';
 import {InputField, PrimaryButton} from '@app/commons';
-import {CapitalizeFirstLetter, ShowToast, WaitTimeout} from '@app/utils';
-import {EditProfileStyles as Styles} from '@app/assets/styles';
 import {updateUserInfo} from '@app/redux/slices';
+import {CapitalizeFirstLetter, ShowToast, WaitTimeout} from '@app/utils';
+import {ImagePickerMenu} from './components';
+import {EditProfileStyles as Styles} from '@app/assets/styles';
 
 export default function EditProfile({navigation}) {
   const {
@@ -26,6 +27,7 @@ export default function EditProfile({navigation}) {
 
   const [profileImage, setProfileImage] = useState({});
   const [fetching, setFetching] = useState(false);
+  const [showImagePicker, setShowImagePicker] = useState(false);
 
   const {userInfo} = useSelector(state => state?.user || {});
 
@@ -39,13 +41,22 @@ export default function EditProfile({navigation}) {
     });
   }, [userInfo]);
 
-  const changeImageHandler = () => {};
+  const changeImageHandler = () => {
+    setShowImagePicker(!showImagePicker);
+  };
 
   const updateAction = userData => {
     setFetching(true);
 
     WaitTimeout(1000).then(() => {
-      dispatch(updateUserInfo(userData));
+      dispatch(
+        updateUserInfo({
+          ...userData,
+          profileImage: Array.isArray(profileImage?.assets)
+            ? profileImage?.assets[0]?.uri
+            : null,
+        }),
+      );
 
       setFetching(false);
 
@@ -80,6 +91,12 @@ export default function EditProfile({navigation}) {
         animation="fade"
       />
 
+      <ImagePickerMenu
+        modalState={showImagePicker}
+        modalChange={setShowImagePicker}
+        setProfileImage={setProfileImage}
+      />
+
       <View style={Styles.imageContainer}>
         <Image
           style={Styles.image}
@@ -87,6 +104,10 @@ export default function EditProfile({navigation}) {
             Array.isArray(profileImage?.assets)
               ? {
                   uri: profileImage?.assets[0]?.uri,
+                }
+              : userInfo?.profileImage
+              ? {
+                  uri: userInfo?.profileImage,
                 }
               : Images.defaultProfile
           }

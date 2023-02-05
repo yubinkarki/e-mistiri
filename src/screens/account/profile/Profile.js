@@ -14,7 +14,16 @@ export default function Profile({navigation}) {
     <View style={Styles.mainContainer}>
       <View style={Styles.topContainer}>
         <View style={Styles.imageContainer}>
-          <Image source={Images.defaultProfile} style={Styles.image} />
+          <Image
+            source={
+              userInfo?.profileImage
+                ? {
+                    uri: userInfo?.profileImage,
+                  }
+                : Images.defaultProfile
+            }
+            style={Styles.image}
+          />
         </View>
 
         <View style={Styles.fullNameContainer}>

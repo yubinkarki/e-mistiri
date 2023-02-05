@@ -13,7 +13,7 @@ import {
 } from './components';
 import {Colors, Images} from '@app/constants';
 import {WaitTimeout} from '@app/utils';
-import {logoutUser, updateIsSignedIn} from '@app/redux/slices';
+import {logoutUser} from '@app/redux/slices';
 import {AccountStyles as Styles} from '@app/assets/styles';
 
 export default function Account({navigation}) {
@@ -95,7 +95,13 @@ export default function Account({navigation}) {
         style={Styles.topContainer}>
         <View style={Styles.imageContainer}>
           <Image
-            source={Images.defaultProfile}
+            source={
+              userInfo?.profileImage
+                ? {
+                    uri: userInfo?.profileImage,
+                  }
+                : Images.defaultProfile
+            }
             style={Styles.image}
             resizeMode="cover"
           />

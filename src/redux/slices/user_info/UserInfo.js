@@ -11,13 +11,11 @@ const initialState = {
 
 const BASE_URL = 'https://c588-103-41-172-114.in.ngrok.io';
 
-// Actions have been omitted in this front-end only app.
+// Not used in this front-end version of the app.
 export const signupAction = createAsyncThunk(
   'post/signup',
-  async ({userData, apiEndpoint}, {rejectWithValue, dispatch, getState}) => {
+  async ({userData, apiEndpoint}, {rejectWithValue, dispatch}) => {
     try {
-      const state = getState();
-
       const response = await axios.post(`${BASE_URL}/${apiEndpoint}`, userData);
 
       const responseCode = response?.data?.status?.code || 0;
