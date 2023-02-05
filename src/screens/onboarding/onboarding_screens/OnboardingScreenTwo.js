@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import SLI from 'react-native-vector-icons/SimpleLineIcons';
 import AD from 'react-native-vector-icons/AntDesign';
+
 import {Colors} from '@app/constants';
 import {updateIsFirstLoad} from '@app/redux/slices';
 import {onboardingData} from './components';

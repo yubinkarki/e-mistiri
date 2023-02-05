@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {View, Animated, StatusBar} from 'react-native';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 import {Colors, Images} from '@app/constants';
 import {SplashScreenStyles as Styles} from '@app/assets/styles';
 
+// Using a native splash instead of this custom component.
 export default function SplashScreen({navigation}) {
   const [bottomValue, setBottomValue] = useState(new Animated.Value(hp('20%')));
 
