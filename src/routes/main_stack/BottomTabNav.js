@@ -1,12 +1,14 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Toast from 'react-native-toast-message';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import DashboardStack from './DashboardStack';
 import ShopStack from './ShopStack';
 import CartStack from './CartStack';
 import AccountStack from './AccountStack';
 import {Colors, Images, TextStyles} from '@app/constants';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +25,11 @@ export default function BottomTabNav() {
         headerTitleStyle: Styles.headerTitle,
         headerStyle: Styles.header,
         // tabBarHideOnKeyboard: true,
+      })}
+      screenListeners={() => ({
+        tabPress: e => {
+          Toast.hide();
+        },
       })}>
       <Tab.Screen
         name="DashboardStack"
