@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import BottomTabNav from './BottomTabNav';
-import {Profile, EditProfile} from '@app/screens';
+import {Profile, EditProfile, Settings} from '@app/screens';
 import {BackButton} from '@app/commons';
 import {Colors, TextStyles} from '@app/constants';
 
@@ -46,6 +46,17 @@ export default function MainStack() {
           ),
           animation: 'slide_from_right',
           headerTitle: 'Edit Profile',
+        })}
+      />
+
+      <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={({navigation}) => ({
+          headerLeft: props => (
+            <BackButton {...props} onPress={() => navigation.goBack()} />
+          ),
+          animation: 'slide_from_right',
         })}
       />
     </Stack.Navigator>
