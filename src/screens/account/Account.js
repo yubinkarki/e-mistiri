@@ -23,6 +23,10 @@ export default function Account({navigation}) {
         navigation.navigate('Profile');
         break;
 
+      case 2:
+        navigation.navigate('Settings');
+        break;
+
       case 3:
         shareHandler();
         break;
