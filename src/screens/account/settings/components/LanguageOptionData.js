@@ -8,7 +8,7 @@ export default LanguageOptionData = [
     isSelected: false,
   },
   {
-    name: 'France',
+    name: 'French',
     flag: <Images.flagFrance />,
     selectedIcon: <Images.checkMark />,
     isSelected: true,

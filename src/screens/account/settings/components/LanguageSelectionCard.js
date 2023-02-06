@@ -12,6 +12,15 @@ import CountryCard from './CountryCard';
 export default function LanguageSelectionCard() {
   const [languageData, setLanguageData] = useState(LanguageOptionData);
 
+  const toggleSelectedHandler = countryName =>
+    setLanguageData(
+      languageData.map(item =>
+        item.name === countryName
+          ? {...item, isSelected: true}
+          : {...item, isSelected: false},
+      ),
+    );
+
   const ListSeparator = () => <View style={Styles.itemSeparator} />;
 
   const countryListRender = ({item}) => (
@@ -20,7 +29,7 @@ export default function LanguageSelectionCard() {
       flag={item.flag}
       selectedIcon={item.selectedIcon}
       isSelected={item.isSelected}
-      toggleSelected={() => {}}
+      toggleSelected={() => toggleSelectedHandler(item.name)}
     />
   );
 

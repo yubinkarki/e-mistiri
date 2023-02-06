@@ -46,6 +46,7 @@ const Styles = StyleSheet.create({
     paddingHorizontal: wp('5%'),
     alignItems: 'center',
     marginBottom: 10,
+    borderRadius: 5,
   },
   language: {
     ...TextStyles.poppinsExtraLargerLight,
