@@ -17,14 +17,12 @@ export default MenuItemData = [
     id: 3,
     text: 'Notification',
     left: <Images.notification />,
-    right: '',
     toggleStatus: true,
   },
   {
     id: 4,
     text: 'Dark Mode',
     left: <Images.darkMode />,
-    right: '',
     toggleStatus: false,
   },
   {
