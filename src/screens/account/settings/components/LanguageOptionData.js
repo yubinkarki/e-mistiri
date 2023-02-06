@@ -3,7 +3,7 @@ import {Images} from '@app/constants';
 export default LanguageOptionData = [
   {
     name: 'English',
-    flag: <Images.flagFrance />,
+    flag: <Images.flagEngland />,
     selectedIcon: <Images.checkMark />,
     isSelected: false,
   },

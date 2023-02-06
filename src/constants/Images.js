@@ -42,6 +42,7 @@ import Notification from '../assets/svg/account/Notification.svg';
 import Privacy from '../assets/svg/account/Privacy.svg';
 import CheckMark from '../assets/svg/account/CheckMark.svg';
 import FlagFrance from '../assets/svg/account/FlagFrance.svg';
+import FlagEngland from '../assets/svg/account/FlagEngland.svg';
 
 export default {
   mainLogo: MainLogo,
@@ -77,4 +78,5 @@ export default {
   privacy: Privacy,
   checkMark: CheckMark,
   flagFrance: FlagFrance,
+  flagEngland: FlagEngland,
 };
