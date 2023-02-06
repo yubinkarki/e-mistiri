@@ -11,6 +11,7 @@ export default {
   subtitleText: '#8F93AF',
   dashboardProductCategory: '#F1F1F1',
   dashboardProductActiveCategory: '#C3C8E3',
+  countryCardBorder: '#E3E3E3',
   inputFieldIcon: '#868686',
   inputField: '#f5f5f5',
   errorText: '#EE1D0D',
