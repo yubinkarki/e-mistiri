@@ -1,5 +1,4 @@
-An Ecommerce app built using React Native on Android.  
-Figma design for the app was provided by our mentor.
+An Ecommerce app built using React Native CLI for Android, following a Figma design.
 
 Used `npx react-native init` to create the starting template.
 
