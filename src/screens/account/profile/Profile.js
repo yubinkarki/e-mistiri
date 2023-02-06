@@ -43,7 +43,7 @@ export default function Profile({navigation}) {
             buttonLabel="Edit Profile"
             buttonHeight={50}
             buttonWidth={170}
-            buttonRadius={30}
+            buttonRadius={10}
             onPressHandler={() => navigation.navigate('EditProfile')}
           />
         </View>
