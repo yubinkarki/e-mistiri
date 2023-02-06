@@ -1,6 +1,7 @@
-import {Colors} from '@app/constants';
 import React from 'react';
-import {View, Text, Modal, StyleSheet, TouchableOpacity} from 'react-native';
+import {Modal, StyleSheet, TouchableOpacity} from 'react-native';
+
+import {Colors} from '@app/constants';
 
 export default function BottomPopModal({
   isModalVisible,
