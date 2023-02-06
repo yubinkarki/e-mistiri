@@ -1,20 +1,30 @@
-import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import React, {useState} from 'react';
+import {View, FlatList} from 'react-native';
 
-import {MenuItemData} from './components';
-import {MenuCard} from '../components';
+import {LanguageSelectionCard, MenuItemData} from './components';
+import {BottomPopModal, MenuCard} from '../components';
 import {SettingsStyles as Styles} from '@app/assets/styles';
 
 export default function Settings() {
+  const [languagePicker, setLanguagePicker] = useState(false);
+
+  const closeLanguagePicker = () => {
+    setLanguagePicker(false);
+  };
+
+  const toggleLanguagePicker = () => {
+    setLanguagePicker(!languagePicker);
+  };
+
   const cardPressHandler = itemId => {
     switch (itemId) {
       // case 1:
       //   navigation.navigate('Profile');
       //   break;
 
-      // case 2:
-      //   navigation.navigate('Settings');
-      //   break;
+      case 2:
+        toggleLanguagePicker();
+        break;
 
       default:
         break;
@@ -41,6 +51,13 @@ export default function Settings() {
         contentContainerStyle={Styles.listContainer}
         ItemSeparatorComponent={ListSeparator}
       />
+
+      <BottomPopModal
+        isModalVisible={languagePicker}
+        toggleModal={toggleLanguagePicker}
+        closeModal={closeLanguagePicker}>
+        <LanguageSelectionCard />
+      </BottomPopModal>
     </View>
   );
 }
