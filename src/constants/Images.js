@@ -40,6 +40,8 @@ import ChangePassword from '../assets/svg/account/ChangePassword.svg';
 import DarkMode from '../assets/svg/account/DarkMode.svg';
 import Notification from '../assets/svg/account/Notification.svg';
 import Privacy from '../assets/svg/account/Privacy.svg';
+import CheckMark from '../assets/svg/account/CheckMark.svg';
+import FlagFrance from '../assets/svg/account/FlagFrance.svg';
 
 export default {
   mainLogo: MainLogo,
@@ -73,4 +75,6 @@ export default {
   darkMode: DarkMode,
   notification: Notification,
   privacy: Privacy,
+  checkMark: CheckMark,
+  flagFrance: FlagFrance,
 };
