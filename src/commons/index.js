@@ -6,6 +6,7 @@ import PrimaryButton from './PrimaryButton';
 import ProductCard from './ProductCard';
 import ProductCounter from './ProductCounter';
 import SearchBar from './SearchBar';
+import ToggleButton from './ToggleButton';
 
 export {
   BackButton,
@@ -16,4 +17,5 @@ export {
   ProductCard,
   ProductCounter,
   SearchBar,
+  ToggleButton,
 };
