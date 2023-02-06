@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import {Colors, Images, TextStyles} from '@app/constants';
+import {Colors, TextStyles} from '@app/constants';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
