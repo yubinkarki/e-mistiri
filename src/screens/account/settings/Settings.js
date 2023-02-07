@@ -6,7 +6,7 @@ import {LanguageSelectionCard, MenuItemData} from './components';
 import {BottomPopModal, MenuCard} from '../components';
 import {SettingsStyles as Styles} from '@app/assets/styles';
 
-export default function Settings() {
+export default function Settings({navigation}) {
   const [languagePicker, setLanguagePicker] = useState(false);
   const [notificationSwitch, setNotificationSwitch] = useState(true);
   const [darkModeSwitch, setDarkModeSwitch] = useState(false);
@@ -21,9 +21,9 @@ export default function Settings() {
 
   const cardPressHandler = itemId => {
     switch (itemId) {
-      // case 1:
-      //   navigation.navigate('Profile');
-      //   break;
+      case 1:
+        navigation.navigate('ChangePassword');
+        break;
 
       case 2:
         toggleLanguagePicker();
