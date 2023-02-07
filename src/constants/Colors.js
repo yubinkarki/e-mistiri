@@ -14,6 +14,7 @@ export default {
   countryCardBorder: '#E3E3E3',
   inputFieldIcon: '#868686',
   inputField: '#f5f5f5',
+  linkText: '#2F80ED',
   errorText: '#EE1D0D',
   menuIconBackground: '#EBECF5',
   checkBox: '#888888',
