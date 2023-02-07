@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StatusBar} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 import {InputRules} from '../components';
@@ -46,9 +51,8 @@ export default function Login({navigation}) {
   };
 
   return (
-    <KeyboardAwareScrollView
+    <ScrollView
       style={Styles.mainContainer}
-      enableOnAndroid={false}
       keyboardShouldPersistTaps="handled">
       <StatusBar backgroundColor={Colors.white} />
 
@@ -121,6 +125,6 @@ export default function Login({navigation}) {
           </TouchableOpacity>
         </View>
       </View>
-    </KeyboardAwareScrollView>
+    </ScrollView>
   );
 }
