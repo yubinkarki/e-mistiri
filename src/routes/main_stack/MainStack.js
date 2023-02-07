@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import BottomTabNav from './BottomTabNav';
-import {Profile, EditProfile, Settings} from '@app/screens';
+import {Profile, EditProfile, Settings, ChangePassword} from '@app/screens';
 import {BackButton} from '@app/commons';
 import {Colors, TextStyles} from '@app/constants';
 
@@ -59,6 +59,19 @@ export default function MainStack() {
           animation: 'slide_from_right',
         })}
       />
+
+      <Stack.Screen
+        name="ChangePassword"
+        component={ChangePassword}
+        options={({navigation}) => ({
+          headerLeft: props => (
+            <BackButton {...props} onPress={() => navigation.goBack()} />
+          ),
+          animation: 'slide_from_right',
+          headerTitle: 'Change Password',
+          headerTitleStyle: Styles.changePasswordHeaderTitle,
+        })}
+      />
     </Stack.Navigator>
   );
 }
@@ -70,5 +83,9 @@ const Styles = StyleSheet.create({
   headerTitle: {
     ...TextStyles.poppinsExtraLargeBold,
     fontSize: 24,
+  },
+  changePasswordHeaderTitle: {
+    ...TextStyles.poppinsExtraLargeBold,
+    fontSize: 20,
   },
 });
