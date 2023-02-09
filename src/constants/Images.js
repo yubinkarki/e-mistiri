@@ -43,7 +43,12 @@ import Privacy from '../assets/svg/account/Privacy.svg';
 import CheckMark from '../assets/svg/account/CheckMark.svg';
 import FlagFrance from '../assets/svg/account/FlagFrance.svg';
 import FlagEngland from '../assets/svg/account/FlagEngland.svg';
-import RegularService from '../assets/svg/account/RegularService.svg';
+
+// Cart screen images.
+import RegularService from '../assets/svg/cart/RegularService.svg';
+import Cross from '../assets/svg/cart/Cross.svg';
+import CounterMinus from '../assets/svg/cart/CounterMinus.svg';
+import CounterPlus from '../assets/svg/cart/CounterPlus.svg';
 
 export default {
   mainLogo: MainLogo,
@@ -81,4 +86,7 @@ export default {
   flagFrance: FlagFrance,
   flagEngland: FlagEngland,
   regularService: RegularService,
+  cross: Cross,
+  counterMinus: CounterMinus,
+  counterPlus: CounterPlus,
 };
