@@ -23,7 +23,7 @@ export default function Dashboard() {
     formState: {errors},
   } = useForm();
 
-  const {allProducts} = useSelector(state => state?.product || {});
+  const {allProducts} = useSelector(state => state?.product || []);
 
   const [vehicleCategory, setVehicleCategory] = useState(VehicleCategoryData);
 
@@ -97,9 +97,11 @@ export default function Dashboard() {
         </View>
 
         <View style={Styles.productListContainer}>
-          {allProducts.map(item => (
-            <ProductCard key={item.id} data={item} onPress={() => {}} />
-          ))}
+          {Array.isArray(allProducts) && allProducts.length
+            ? allProducts.map(item => (
+                <ProductCard key={item.id} data={item} onPress={() => {}} />
+              ))
+            : []}
         </View>
       </ScrollView>
     </View>
