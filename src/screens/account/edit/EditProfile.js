@@ -80,7 +80,9 @@ export default function EditProfile({navigation}) {
   };
 
   return (
-    <ScrollView style={Styles.mainContainer}>
+    <ScrollView
+      keyboardShouldPersistTaps="handled"
+      style={Styles.mainContainer}>
       <Spinner
         visible={fetching}
         color={Colors.white}
