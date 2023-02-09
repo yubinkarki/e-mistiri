@@ -1,17 +1,18 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {persistStore, persistReducer} from 'redux-persist';
-import {UserInfoSlice, ProductInfoSlice} from './slices';
+import {UserInfoSlice, ProductInfoSlice, CartInfoSlice} from './slices';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['isSignedIn', 'isFirstLoad', 'userInfo'], // State name in slice.
+  whitelist: ['isSignedIn', 'isFirstLoad', 'userInfo', 'cartProducts'], // State name in slice.
 };
 
 const rootReducer = combineReducers({
   user: persistReducer(persistConfig, UserInfoSlice),
   product: ProductInfoSlice,
+  cart: CartInfoSlice,
 });
 
 export const store = configureStore({

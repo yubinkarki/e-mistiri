@@ -61,7 +61,6 @@ const initialState = {
       image: <Images.brakePad />,
     },
   ],
-  cartProducts: [],
 };
 
 export const ProductInfo = createSlice({
