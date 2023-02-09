@@ -20,6 +20,7 @@ export default function ChangePassword() {
   const {
     control,
     handleSubmit,
+    watch,
     formState: {errors},
   } = useForm();
 
@@ -29,23 +30,25 @@ export default function ChangePassword() {
     <ScrollView
       style={Styles.mainContainer}
       keyboardShouldPersistTaps="handled">
-      <View style={Styles.topContainer}>
-        <Text style={Styles.inputLabel}>Current Password</Text>
+      <View style={Styles.inputContainer}>
+        <View style={Styles.topContainer}>
+          <Text style={Styles.inputLabel}>Current Password</Text>
 
-        <TouchableOpacity activeOpacity={0.5} onPress={() => {}}>
-          <Text style={Styles.linkText}>Forgot password?</Text>
-        </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.5} onPress={() => {}}>
+            <Text style={Styles.linkText}>Forgot password?</Text>
+          </TouchableOpacity>
+        </View>
+
+        <InputField
+          control={control}
+          errors={errors}
+          isPassword
+          passwordIcon
+          inputName="currentPassword"
+          rules={InputRules.password}
+          outlineColor={Colors.inputFieldOutline}
+        />
       </View>
-
-      <InputField
-        control={control}
-        errors={errors}
-        isPassword
-        passwordIcon
-        inputName="currentPassword"
-        rules={InputRules.password}
-        outlineColor={Colors.inputFieldOutline}
-      />
 
       <View style={Styles.inputContainer}>
         <Text style={Styles.inputLabel}>New Password</Text>
@@ -99,7 +102,7 @@ const Styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     paddingHorizontal: wp('5%'),
-    paddingTop: hp('5%'),
+    paddingTop: hp('4%'),
     backgroundColor: Colors.white,
   },
   topContainer: {
@@ -108,7 +111,7 @@ const Styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   inputContainer: {
-    marginTop: hp('2%'),
+    height: hp('13%'),
   },
   inputLabel: {
     color: Colors.editProfileInputLabel,
@@ -122,7 +125,8 @@ const Styles = StyleSheet.create({
     fontSize: 14,
   },
   buttonContainer: {
-    marginTop: hp('8%'),
+    marginTop: hp('10%'),
+    marginBottom: hp('12%'),
     alignItems: 'center',
   },
 });
