@@ -46,7 +46,7 @@ export default function BottomTabNav() {
       <Tab.Screen
         name="CartStack"
         component={CartStack}
-        options={{title: 'Cart'}}
+        options={{title: 'Cart', headerTitle: 'Shopping Cart'}}
       />
 
       <Tab.Screen
