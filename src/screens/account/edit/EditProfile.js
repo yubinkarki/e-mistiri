@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {View, Text, Image, TouchableOpacity, ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
 import Feather from 'react-native-vector-icons/Feather';
@@ -81,9 +80,7 @@ export default function EditProfile({navigation}) {
   };
 
   return (
-    <KeyboardAwareScrollView
-      keyboardShouldPersistTaps="handled"
-      style={Styles.mainContainer}>
+    <ScrollView style={Styles.mainContainer}>
       <Spinner
         visible={fetching}
         color={Colors.white}
@@ -181,6 +178,6 @@ export default function EditProfile({navigation}) {
           />
         </View>
       </View>
-    </KeyboardAwareScrollView>
+    </ScrollView>
   );
 }
