@@ -108,6 +108,7 @@ const Styles = StyleSheet.create({
     marginHorizontal: 8,
     position: 'absolute',
     overflow: 'hidden',
+    borderTopWidth: 0,
     bottom: 0,
   },
   tabBarLabel: {
