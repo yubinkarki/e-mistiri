@@ -72,4 +72,20 @@ export const CartItemStyles = StyleSheet.create({
     right: 0,
     top: hp('1.2%'),
   },
+  countContainer: {
+    backgroundColor: Colors.white,
+    borderWidth: 1,
+    borderColor: Colors.promotionCardBackground,
+    height: hp('4%'),
+    width: wp('8%'),
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 10,
+    top: hp('7.8%'),
+  },
+  count: {
+    color: Colors.black,
+  },
 });
