@@ -18,6 +18,8 @@ export default {
   errorText: '#EE1D0D',
   menuIconBackground: '#EBECF5',
   checkBox: '#888888',
+  promotionCardBackground: '#E3F2FF',
+  promotionCardText: '#FFA93F',
   footerText: '#635555',
   productCardSubtitle: '#828282',
   dashboardAdTitle: '#E1C589',
