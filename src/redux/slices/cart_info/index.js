@@ -1,3 +1,7 @@
-import CartInfoSlice, {increaseCount, decreaseCount} from './CartInfo';
+import CartInfoSlice, {
+  increaseCount,
+  decreaseCount,
+  removeCartItem,
+} from './CartInfo';
 
-export {CartInfoSlice, increaseCount, decreaseCount};
+export {CartInfoSlice, increaseCount, decreaseCount, removeCartItem};

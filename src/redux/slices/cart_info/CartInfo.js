@@ -48,9 +48,14 @@ export const CartInfo = createSlice({
         item => item.id === action.payload && {...item, count: item.count--},
       );
     },
+    removeCartItem: (state, action) => {
+      state.cartProducts = state.cartProducts.filter(
+        item => item.id !== action.payload,
+      );
+    },
   },
 });
 
-export const {increaseCount, decreaseCount} = CartInfo.actions;
+export const {increaseCount, decreaseCount, removeCartItem} = CartInfo.actions;
 
 export default CartInfo.reducer;

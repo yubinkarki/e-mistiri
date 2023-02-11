@@ -13,6 +13,7 @@ export default function CartItem({
   discountedPrice,
   counterPlusHandler,
   counterMinusHandler,
+  removeCartItemHandler,
   toggle,
   count,
 }) {
@@ -48,7 +49,9 @@ export default function CartItem({
 
       {toggle && (
         <View style={Styles.rightContainer}>
-          <TouchableOpacity style={Styles.crossContainer}>
+          <TouchableOpacity
+            style={Styles.crossContainer}
+            onPress={removeCartItemHandler}>
             <Images.cross width={20} />
           </TouchableOpacity>
 

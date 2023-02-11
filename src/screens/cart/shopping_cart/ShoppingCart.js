@@ -1,15 +1,16 @@
 import React from 'react';
-import {View, FlatList, StyleSheet} from 'react-native';
+import {View, FlatList, StyleSheet, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
-import {increaseCount, decreaseCount} from '@app/redux/slices';
+import {increaseCount, decreaseCount, removeCartItem} from '@app/redux/slices';
 import {CartItem} from '../components';
 import {CheckoutCard} from './components';
-import {Colors} from '@app/constants';
+import {Colors, TextStyles} from '@app/constants';
+import {ShowToast} from '@app/utils';
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();
@@ -24,7 +25,15 @@ export default function ShoppingCart() {
     dispatch(decreaseCount(itemId));
   };
 
-  console.log(cartProducts);
+  const removeCartItemHandler = itemId => {
+    dispatch(removeCartItem(itemId));
+
+    ShowToast({
+      type: 'success',
+      title: 'Success',
+      subtitle: 'Item removed successfully',
+    });
+  };
 
   const totalAmount = cartProducts
     .map(item =>
@@ -32,7 +41,7 @@ export default function ShoppingCart() {
         ? item.discountedPrice * item.count
         : item.price * item.count,
     )
-    .reduce((a, b) => a + b);
+    .reduce((a, b) => a + b, 0);
 
   const cartItems = ({item}) => (
     <CartItem
@@ -44,6 +53,7 @@ export default function ShoppingCart() {
       count={item?.count}
       counterPlusHandler={() => counterIncrement(item?.id)}
       counterMinusHandler={() => counterDecrement(item?.id)}
+      removeCartItemHandler={() => removeCartItemHandler(item?.id)}
       toggle
     />
   );
@@ -52,13 +62,23 @@ export default function ShoppingCart() {
 
   return (
     <View style={Styles.mainContainer}>
-      <FlatList
-        ItemSeparatorComponent={Separator}
-        contentContainerStyle={Styles.listContainer}
-        data={cartProducts}
-        keyExtractor={data => data.id}
-        renderItem={cartItems}
-      />
+      {Array.isArray(cartProducts) && cartProducts.length ? (
+        <FlatList
+          ItemSeparatorComponent={Separator}
+          contentContainerStyle={Styles.listContainer}
+          data={cartProducts}
+          keyExtractor={data => data.id}
+          renderItem={cartItems}
+        />
+      ) : (
+        <View style={Styles.emptyListContainer}>
+          <Text style={Styles.emptyTitle}>No item in cart</Text>
+
+          <Text style={Styles.emptySubtitle}>
+            Add some from product details screen
+          </Text>
+        </View>
+      )}
 
       <View style={Styles.checkoutContainer}>
         <CheckoutCard totalAmount={totalAmount} />
@@ -83,5 +103,24 @@ const Styles = StyleSheet.create({
   },
   separatorContainer: {
     height: hp('2.6%'),
+  },
+  emptyListContainer: {
+    height: hp('68.7%'),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyTitle: {
+    ...TextStyles.poppinsExtraLargeBold,
+    color: Colors.editProfileInputLabel,
+    fontSize: 30,
+    textAlign: 'center',
+  },
+  emptySubtitle: {
+    ...TextStyles.poppinsExtraLargeBold,
+    color: Colors.inputFieldOutline,
+    fontSize: 20,
+    textAlign: 'center',
+    paddingTop: hp('5%'),
+    paddingHorizontal: wp('15%'),
   },
 });
