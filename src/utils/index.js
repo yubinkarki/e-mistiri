@@ -4,6 +4,7 @@ import ShowToast from './ShowToast';
 import CapitalizeFirstLetter from './CapitalizeFirstLetter';
 import LaunchGallery from './LaunchGallery';
 import LaunchCamera from './LaunchCamera';
+import {totalAmount, totalCount} from './CalculateTotal';
 
 export {
   BlurInputFocus,
@@ -12,4 +13,6 @@ export {
   CapitalizeFirstLetter,
   LaunchGallery,
   LaunchCamera,
+  totalAmount,
+  totalCount,
 };
