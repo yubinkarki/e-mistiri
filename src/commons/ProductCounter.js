@@ -7,15 +7,25 @@ import {
 
 import {Colors, TextStyles, Images} from '@app/constants';
 
-export default function ProductCounter({value}) {
-  const [count, setCount] = useState(value || 81);
+export default function ProductCounter({
+  value,
+  counterPlusHandler,
+  counterMinusHandler,
+}) {
+  const [count, setCount] = useState(value || 0);
 
   const counterIncrement = () => {
-    count < 100 && setCount(count + 1);
+    if (count < 100) {
+      counterPlusHandler();
+      setCount(count + 1);
+    }
   };
 
   const counterDecrement = () => {
-    count > 1 && setCount(count - 1);
+    if (count > 1) {
+      counterMinusHandler();
+      setCount(count - 1);
+    }
   };
 
   return (

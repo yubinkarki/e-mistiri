@@ -8,7 +8,7 @@ const initialState = {
       id: 1,
       title: 'Engine Filter',
       subtitle: 'Yamaha',
-      price: 1540,
+      price: 1000,
       discountedPrice: null,
       image: <Images.engineFilter width={'90%'} height={'90%'} />,
       count: 2,
@@ -37,9 +37,20 @@ const initialState = {
 export const CartInfo = createSlice({
   name: 'cart',
   initialState,
-  reducers: {},
+  reducers: {
+    increaseCount: (state, action) => {
+      state.cartProducts.find(
+        item => item.id === action.payload && {...item, count: item.count++},
+      );
+    },
+    decreaseCount: (state, action) => {
+      state.cartProducts.find(
+        item => item.id === action.payload && {...item, count: item.count--},
+      );
+    },
+  },
 });
 
-export const {} = CartInfo.actions;
+export const {increaseCount, decreaseCount} = CartInfo.actions;
 
 export default CartInfo.reducer;
