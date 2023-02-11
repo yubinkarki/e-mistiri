@@ -8,9 +8,7 @@ import {
 import {PrimaryButton} from '@app/commons';
 import {Colors, TextStyles} from '@app/constants';
 
-export default function CheckoutCard({totalAmount}) {
-  const checkoutButtonHandler = () => {};
-
+export default function CheckoutCard({totalAmount, onPress}) {
   return (
     <View style={Styles.mainContainer}>
       <View style={Styles.leftContainer}>
@@ -25,7 +23,7 @@ export default function CheckoutCard({totalAmount}) {
           buttonRadius={6}
           buttonHeight={hp('6.5%')}
           buttonWidth={wp('50%')}
-          onPressHandler={checkoutButtonHandler}
+          onPressHandler={onPress}
         />
       </View>
     </View>
