@@ -5,14 +5,15 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import Toast from 'react-native-toast-message';
 
 import {increaseCount, decreaseCount, removeCartItem} from '@app/redux/slices';
 import {CartItem} from '../components';
 import {CheckoutCard} from './components';
 import {Colors, TextStyles} from '@app/constants';
-import {ShowToast} from '@app/utils';
+import {ShowToast, totalAmount} from '@app/utils';
 
-export default function ShoppingCart() {
+export default function ShoppingCart({navigation}) {
   const dispatch = useDispatch();
 
   const {cartProducts} = useSelector(state => state?.cart || []);
@@ -35,13 +36,11 @@ export default function ShoppingCart() {
     });
   };
 
-  const totalAmount = cartProducts
-    .map(item =>
-      item.discountedPrice
-        ? item.discountedPrice * item.count
-        : item.price * item.count,
-    )
-    .reduce((a, b) => a + b, 0);
+  const checkoutHandler = () => {
+    navigation.navigate('MyCart');
+
+    Toast.hide();
+  };
 
   const cartItems = ({item}) => (
     <CartItem
@@ -81,7 +80,10 @@ export default function ShoppingCart() {
       )}
 
       <View style={Styles.checkoutContainer}>
-        <CheckoutCard totalAmount={totalAmount} />
+        <CheckoutCard
+          totalAmount={totalAmount(cartProducts)}
+          onPress={checkoutHandler}
+        />
       </View>
     </View>
   );
