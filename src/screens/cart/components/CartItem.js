@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 import {Images} from '@app/constants';
 import {ProductCounter} from '@app/commons';
@@ -47,7 +47,7 @@ export default function CartItem({
         </View>
       </View>
 
-      {toggle && (
+      {toggle ? (
         <View style={Styles.rightContainer}>
           <TouchableOpacity
             style={Styles.crossContainer}
@@ -62,6 +62,10 @@ export default function CartItem({
               counterMinusHandler={counterMinusHandler}
             />
           </View>
+        </View>
+      ) : (
+        <View style={Styles.countContainer}>
+          <Text style={Styles.count}>{count}</Text>
         </View>
       )}
     </View>
