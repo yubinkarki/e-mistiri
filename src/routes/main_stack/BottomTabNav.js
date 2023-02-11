@@ -27,7 +27,7 @@ export default function BottomTabNav() {
         // tabBarHideOnKeyboard: true,
       })}
       screenListeners={() => ({
-        tabPress: e => {
+        tabPress: () => {
           Toast.hide();
         },
       })}>
