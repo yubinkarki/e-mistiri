@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -15,9 +15,18 @@ export default function ProductCounter({
   const [count, setCount] = useState(value || 0);
 
   const counterIncrement = () => {
-    if (count < 100) {
+    if (count < 10) {
       counterPlusHandler();
       setCount(count + 1);
+    } else {
+      Alert.alert(
+        'Limit Reached',
+        'You can only add 10 of each item',
+        [{text: 'Got It'}],
+        {
+          cancelable: true,
+        },
+      );
     }
   };
 
