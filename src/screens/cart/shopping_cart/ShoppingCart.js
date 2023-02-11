@@ -1,17 +1,38 @@
 import React from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 
+import {increaseCount, decreaseCount} from '@app/redux/slices';
 import {CartItem} from '../components';
 import {CheckoutCard} from './components';
 import {Colors} from '@app/constants';
 
 export default function ShoppingCart() {
+  const dispatch = useDispatch();
+
   const {cartProducts} = useSelector(state => state?.cart || []);
+
+  const counterIncrement = itemId => {
+    dispatch(increaseCount(itemId));
+  };
+
+  const counterDecrement = itemId => {
+    dispatch(decreaseCount(itemId));
+  };
+
+  console.log(cartProducts);
+
+  const totalAmount = cartProducts
+    .map(item =>
+      item.discountedPrice
+        ? item.discountedPrice * item.count
+        : item.price * item.count,
+    )
+    .reduce((a, b) => a + b);
 
   const cartItems = ({item}) => (
     <CartItem
@@ -21,6 +42,8 @@ export default function ShoppingCart() {
       discountedPrice={item?.discountedPrice}
       image={item?.image}
       count={item?.count}
+      counterPlusHandler={() => counterIncrement(item?.id)}
+      counterMinusHandler={() => counterDecrement(item?.id)}
       toggle
     />
   );
@@ -38,7 +61,7 @@ export default function ShoppingCart() {
       />
 
       <View style={Styles.checkoutContainer}>
-        <CheckoutCard />
+        <CheckoutCard totalAmount={totalAmount} />
       </View>
     </View>
   );
