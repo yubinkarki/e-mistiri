@@ -24,10 +24,7 @@ export default function AdCarouselItem({title, subtitle, image}) {
             {subtitle}
           </Text>
 
-          <AdCarouselButton
-            label="Buy Now"
-            onPress={() => console.log('Buy Now Button')}
-          />
+          <AdCarouselButton label="Buy Now" onPress={() => {}} />
         </View>
 
         <View style={Styles.rightContainer}>{image}</View>

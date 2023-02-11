@@ -15,7 +15,7 @@ const launchDeviceCamera = async setProfileImage => {
 
   await launchCamera(options, response => {
     if (response.error) {
-      console.log('Error launching camera: ', response.error);
+      alert('Error launching camera: ', response.error);
     } else if (response.customButton) {
       alert('User tapped custom button: ', response.customButton);
     } else {
