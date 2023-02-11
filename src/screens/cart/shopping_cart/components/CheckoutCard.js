@@ -8,7 +8,7 @@ import {
 import {PrimaryButton} from '@app/commons';
 import {Colors, TextStyles} from '@app/constants';
 
-export default function CheckoutCard() {
+export default function CheckoutCard({totalAmount}) {
   const checkoutButtonHandler = () => {};
 
   return (
@@ -16,7 +16,7 @@ export default function CheckoutCard() {
       <View style={Styles.leftContainer}>
         <Text style={Styles.title}>Total</Text>
 
-        <Text style={Styles.price}>Rs. 2,999</Text>
+        <Text style={Styles.price}>{`Rs. ${totalAmount}`}</Text>
       </View>
 
       <View style={Styles.rightContainer}>
