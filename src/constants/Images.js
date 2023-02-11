@@ -49,6 +49,8 @@ import RegularService from '../assets/svg/cart/RegularService.svg';
 import Cross from '../assets/svg/cart/Cross.svg';
 import CounterMinus from '../assets/svg/cart/CounterMinus.svg';
 import CounterPlus from '../assets/svg/cart/CounterPlus.svg';
+import PromotionText from '../assets/svg/cart/PromotionText.svg';
+import PromotionCar from '../assets/svg/cart/PromotionCar.svg';
 
 export default {
   mainLogo: MainLogo,
@@ -89,4 +91,6 @@ export default {
   cross: Cross,
   counterMinus: CounterMinus,
   counterPlus: CounterPlus,
+  promotionText: PromotionText,
+  promotionCar: PromotionCar,
 };
