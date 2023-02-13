@@ -9,8 +9,9 @@ import {
   Settings,
   ChangePassword,
   MyCart,
+  ProductDetails,
 } from '@app/screens';
-import {BackButton} from '@app/commons';
+import {BackButton, FavoriteButton} from '@app/commons';
 import {Colors, TextStyles} from '@app/constants';
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,19 @@ export default function MainStack() {
       />
 
       {/* These screens do not have the bottom tab bar. */}
+      <Stack.Screen
+        name="ProductDetails"
+        component={ProductDetails}
+        options={({navigation}) => ({
+          headerLeft: props => (
+            <BackButton {...props} onPress={() => navigation.goBack()} />
+          ),
+          headerRight: () => <FavoriteButton />,
+          animation: 'slide_from_right',
+          headerTitle: '',
+        })}
+      />
+
       <Stack.Screen
         name="Profile"
         component={Profile}
