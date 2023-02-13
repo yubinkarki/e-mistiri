@@ -25,8 +25,8 @@ export default function ImagePickerMenu({
       backdropOpacity={0.5}
       onBackdropPress={closeModal}
       onBackButtonPress={closeModal}
-      animationIn="slideInUp"
-      animationOut="slideOutRight"
+      animationIn="fadeInLeft"
+      animationOut="fadeOutRight"
       animationInTiming={250}
       animationOutTiming={200}
       backdropTransitionInTiming={100}
