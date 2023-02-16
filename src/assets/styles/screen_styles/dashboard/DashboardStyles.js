@@ -17,7 +17,6 @@ export const DashboardStyles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     marginVertical: hp('1%'),
-    // paddingHorizontal: wp('4%'),
     justifyContent: 'center',
   },
   carouselContainer: {
