@@ -39,15 +39,22 @@ export default function MyCart({navigation}) {
   const Separator = () => <View style={Styles.separatorContainer} />;
 
   const checkoutHandler = () => {
-    Alert.alert(
-      'Happy Shopping',
-      'Your order has been placed successfully',
-      [{text: 'Got It', onPress: () => navigation.navigate('DashboardStack')}],
-      {
-        cancelable: true,
-        onDismiss: () => navigation.navigate('DashboardStack'),
-      },
-    );
+    Array.isArray(cartProducts) && cartProducts.length
+      ? Alert.alert(
+          'Happy Shopping',
+          'Your order has been placed successfully',
+          [
+            {
+              text: 'Got It',
+              onPress: () => navigation.navigate('DashboardStack'),
+            },
+          ],
+          {
+            cancelable: true,
+            onDismiss: () => navigation.navigate('DashboardStack'),
+          },
+        )
+      : null;
   };
 
   return (
@@ -89,6 +96,7 @@ export default function MyCart({navigation}) {
             buttonRadius={6}
             buttonLabel="Proceed to Checkout"
             onPressHandler={checkoutHandler}
+            disabled={!cartProducts.length ? true : undefined}
           />
         </View>
       </View>
