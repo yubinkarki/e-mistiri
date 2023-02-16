@@ -42,8 +42,8 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: wp('5%'),
     marginTop: hp('0.5%'),
-    elevation: 2,
-    shadowColor: Colors.editProfileInputLabel,
+    elevation: 1,
+    shadowColor: Colors.inputFieldIcon,
   },
   title: {
     color: Colors.footerText,
