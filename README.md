@@ -1,9 +1,58 @@
-An Ecommerce app built using React Native CLI for Android, following a Figma design.
+# E-Mistiri
 
-Used `npx react-native init` to create the starting template.
+An E-Commerce app developed using React Native CLI for Android.  
+Used `npx react-native init` to initialize the project.
 
-```
-Steps to run the app in debug mode:
-- npx react-native start
-- npx react-native run-android
-```
+# Table of Contents
+
+- [App functions](#app-functions)
+- [Editor Setup](#editor-setup)
+- [Development Setup](#development-setup)
+- [App Screenshots](#app-screenshots)
+
+# App Functions
+
+A user is able to:
+
+- Create a new account
+- Log in to an existing account
+- View a list of products in dashboard/shop screen
+- Interact via buttons and input fields
+- Add products to their cart
+- View and update personal information
+
+# Editor Setup
+
+- Prettier
+- ESLint
+
+# Development Setup
+
+### Prerequisites
+
+- Node.js and NPM
+- Android SDK
+- JDK v18 (or above)
+- Gradle v7.5.1
+- Visual Studio Code
+- React Native Debugger
+
+Run following commands from project root directory to get up and running with development.
+
+### 1. Install dependencies
+
+npm install
+
+### 2. Start react native metro bundler
+
+npx react-native start
+
+### 3. Build the app on android
+
+npx react-native run android
+
+# App Screenshots
+
+<img src="src/assets/screenshots/5.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/4.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/2.jpg" width="230" height="500" />
