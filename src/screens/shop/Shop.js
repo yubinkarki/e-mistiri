@@ -35,7 +35,9 @@ export default function Shop() {
           left={<TextInput.Icon icon={Images.searchIcon} />}
         />
 
-        <FilterButton />
+        <View style={Styles.filterButtonContainer}>
+          <FilterButton />
+        </View>
       </View>
 
       <View>
@@ -63,6 +65,9 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     marginVertical: hp('1%'),
     justifyContent: 'space-between',
+  },
+  filterButtonContainer: {
+    marginTop: hp('0.8%'),
   },
   listColumnWrapper: {
     justifyContent: 'space-around',
