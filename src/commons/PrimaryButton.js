@@ -7,7 +7,6 @@ import {Colors, TextStyles} from '@app/constants';
 const Styles = StyleSheet.create({
   labelStyles: {
     ...TextStyles.poppinsExtraLargeNormal,
-    color: Colors.white,
   },
   contentStyles: {
     height: '100%',
@@ -40,7 +39,10 @@ export default function PrimaryButton({
           ? Colors.gray
           : Colors.textLink,
       }}
-      labelStyle={Styles.labelStyles}
+      labelStyle={{
+        ...Styles.labelStyles,
+        color: outlined ? Colors.textLink : Colors.white,
+      }}
       contentStyle={Styles.contentStyles}
       icon={() => (
         <MCI
