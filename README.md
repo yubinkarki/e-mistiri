@@ -54,5 +54,7 @@ npx react-native run android
 # App Screenshots
 
 <img src="src/assets/screenshots/5.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/1.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/3.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/4.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/2.jpg" width="230" height="500" />
