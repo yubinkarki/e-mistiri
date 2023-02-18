@@ -7,7 +7,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Toast from 'react-native-toast-message';
 
 import {AuthStack, MainStack} from '@app/routes';
-import {BlurInputFocus} from '@app/utils';
+import {BlurInputFocus, HideToastOnBack} from '@app/utils';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +16,10 @@ export default function App() {
 
   useEffect(() => {
     BlurInputFocus();
+  }, []);
+
+  useEffect(() => {
+    HideToastOnBack();
   }, []);
 
   return (

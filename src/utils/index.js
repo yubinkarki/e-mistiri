@@ -4,6 +4,7 @@ import ShowToast from './ShowToast';
 import CapitalizeFirstLetter from './CapitalizeFirstLetter';
 import LaunchGallery from './LaunchGallery';
 import LaunchCamera from './LaunchCamera';
+import HideToastOnBack from './BackPress';
 import {totalAmount, totalCount} from './CalculateTotal';
 
 export {
@@ -13,6 +14,7 @@ export {
   CapitalizeFirstLetter,
   LaunchGallery,
   LaunchCamera,
+  HideToastOnBack,
   totalAmount,
   totalCount,
 };
