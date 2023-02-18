@@ -24,13 +24,15 @@ A user is able to:
 # Editor Setup
 
 - Prettier
+- Code Spell Checker
 - ESLint
+- commitlint
 
 # Development Setup
 
 ### Prerequisites
 
-- Node.js and NPM
+- Node.js | NPM | NVM
 - Android SDK
 - JDK v18 (or above)
 - Gradle v7.5.1
@@ -41,15 +43,19 @@ Run following commands from project root directory to get up and running with de
 
 ### 1. Install dependencies
 
-npm install
+`npm install`
 
-### 2. Start react native metro bundler
+### 2. Use node version specified in .nvmrc
 
-npx react-native start
+`nvm use`
 
-### 3. Build the app on android
+### 3. Start react native metro bundler
 
-npx react-native run android
+`npx react-native start`
+
+### 4. Build the app on android
+
+`npx react-native run android`
 
 # App Screenshots
 
