@@ -32,12 +32,14 @@ A user is able to:
 
 ### Prerequisites
 
+```
 - Node.js | NPM | NVM
 - Android SDK
 - JDK v18 (or above)
 - Gradle v7.5.1
 - Visual Studio Code
 - React Native Debugger
+```
 
 Run following commands from project root directory to get up and running with development.
 
