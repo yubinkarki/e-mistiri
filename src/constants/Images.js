@@ -20,11 +20,13 @@ import Bike from '../assets/svg/dashboard/Bike.svg';
 import Car from '../assets/svg/dashboard/Car.svg';
 import Scooter from '../assets/svg/dashboard/Scooter.svg';
 import Accessories from '../assets/svg/dashboard/Accessories.svg';
+import CommentIcon from '../assets/svg/dashboard/CommentIcon.svg';
 
 // Product images.
 import BrakePad from '../assets/svg/product/BrakePad.svg';
 import CastrolMagnatec from '../assets/svg/product/CastrolMagnatec.svg';
 import EngineFilter from '../assets/svg/product/EngineFilter.svg';
+import GearBox from '../assets/svg/product/GearBox.svg';
 
 // Account screen images.
 import DefaultProfile from '../assets/images/DefaultProfile.png';
@@ -63,10 +65,12 @@ export default {
   brakePad: BrakePad,
   castrolMagnatec: CastrolMagnatec,
   engineFilter: EngineFilter,
+  gearBox: GearBox,
   bike: Bike,
   car: Car,
   scooter: Scooter,
   accessories: Accessories,
+  commentIcon: CommentIcon,
   homeIcon: Home,
   cartIcon: Cart,
   accountIcon: Account,
