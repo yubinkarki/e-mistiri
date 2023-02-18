@@ -7,7 +7,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-export default function AdCarouselPagination({data, renderItem}) {
+export default function AdCarouselPagination({data, renderItem, customStyles}) {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const isCarousel = useRef(null);
 
@@ -29,7 +29,7 @@ export default function AdCarouselPagination({data, renderItem}) {
         dotsLength={data.length}
         activeDotIndex={carouselIndex}
         carouselRef={isCarousel}
-        containerStyle={Styles.paginationContainer}
+        containerStyle={{...Styles.paginationContainer, ...customStyles}}
         dotStyle={Styles.dot}
         dotContainerStyle={Styles.dotContainer}
         tappableDots={true}
