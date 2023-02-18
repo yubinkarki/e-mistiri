@@ -11,6 +11,8 @@ export default function ProductCounter({
   value,
   counterPlusHandler,
   counterMinusHandler,
+  customStyles,
+  iconSize = 24,
 }) {
   const [count, setCount] = useState(value || 0);
 
@@ -38,15 +40,15 @@ export default function ProductCounter({
   };
 
   return (
-    <View style={Styles.mainContainer}>
+    <View style={{...Styles.mainContainer, ...customStyles}}>
       <TouchableOpacity activeOpacity={0.5} onPress={counterDecrement}>
-        <Images.counterMinus width={24} />
+        <Images.counterMinus width={iconSize} />
       </TouchableOpacity>
 
       <Text style={Styles.text}>{count}</Text>
 
       <TouchableOpacity activeOpacity={0.5} onPress={counterIncrement}>
-        <Images.counterPlus width={24} />
+        <Images.counterPlus width={iconSize} />
       </TouchableOpacity>
     </View>
   );

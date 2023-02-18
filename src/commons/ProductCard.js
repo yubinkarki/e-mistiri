@@ -8,7 +8,9 @@ export default function ProductCard({data, onPress}) {
       style={Styles.mainContainer}
       activeOpacity={0.84}
       onPress={onPress}>
-      <View style={Styles.imageContainer}>{data.image}</View>
+      <View style={Styles.imageContainer}>
+        {<data.image height="80%" width="80%" />}
+      </View>
 
       <View style={Styles.textContainer}>
         <Text style={Styles.title}>{data.title}</Text>

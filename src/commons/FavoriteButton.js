@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import AD from 'react-native-vector-icons/AntDesign';
 
@@ -10,6 +10,7 @@ export default function FavoriteButton() {
   return (
     <TouchableOpacity
       style={Styles.mainContainer}
+      activeOpacity={0.7}
       onPress={() => {
         iconName === 'hearto' ? setIconName('heart') : setIconName('hearto');
       }}>

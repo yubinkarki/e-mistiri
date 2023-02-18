@@ -16,13 +16,13 @@ const Styles = StyleSheet.create({
 export default function PrimaryButton({
   buttonLabel = 'Label',
   buttonHeight = 40,
-  onPressHandler,
   buttonWidth,
   buttonIconName,
   buttonIconSize,
   buttonIconColor,
   buttonRadius,
   outlined,
+  onPressHandler,
   ...rest
 }) {
   return (
