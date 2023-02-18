@@ -17,7 +17,7 @@ import {
 } from './components';
 import {DashboardStyles as Styles} from '@app/assets/styles';
 
-export default function Dashboard() {
+export default function Dashboard({navigation}) {
   const {
     control,
     formState: {errors},
@@ -55,6 +55,10 @@ export default function Dashboard() {
       onPress={() => changeSelectedVehicle(item.id)}
     />
   );
+
+  const productCardPressHandler = () => {
+    navigation.navigate('ProductDetails');
+  };
 
   return (
     <View style={Styles.mainContainer}>
@@ -99,7 +103,11 @@ export default function Dashboard() {
         <View style={Styles.productListContainer}>
           {Array.isArray(allProducts) && allProducts.length
             ? allProducts.map(item => (
-                <ProductCard key={item.id} data={item} onPress={() => {}} />
+                <ProductCard
+                  key={item.id}
+                  data={item}
+                  onPress={productCardPressHandler}
+                />
               ))
             : []}
         </View>
