@@ -23,10 +23,12 @@ A user is able to:
 
 # Editor Setup
 
+```
 - Prettier
 - Code Spell Checker
 - ESLint
 - commitlint
+```
 
 # Development Setup
 
