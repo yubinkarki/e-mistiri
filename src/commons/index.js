@@ -7,6 +7,8 @@ import ProductCard from './ProductCard';
 import ProductCounter from './ProductCounter';
 import SearchBar from './SearchBar';
 import ToggleButton from './ToggleButton';
+import CommentButton from './CommentButton';
+import SmallProductCard from './SmallProductCard';
 
 export {
   BackButton,
@@ -18,4 +20,6 @@ export {
   ProductCounter,
   SearchBar,
   ToggleButton,
+  CommentButton,
+  SmallProductCard,
 };
