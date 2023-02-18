@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 import {useSelector} from 'react-redux';
+import Toast from 'react-native-toast-message';
 
 import {PrimaryButton} from '@app/commons';
 import {Images} from '@app/constants';
@@ -9,6 +10,11 @@ import {ProfileStyles as Styles} from '@app/assets/styles';
 
 export default function Profile({navigation}) {
   const {userInfo} = useSelector(state => state?.user || {});
+
+  const editProfileHandler = () => {
+    Toast.hide();
+    navigation.navigate('EditProfile');
+  };
 
   return (
     <View style={Styles.mainContainer}>
@@ -44,7 +50,7 @@ export default function Profile({navigation}) {
             buttonHeight={50}
             buttonWidth={170}
             buttonRadius={10}
-            onPressHandler={() => navigation.navigate('EditProfile')}
+            onPressHandler={editProfileHandler}
           />
         </View>
       </View>
