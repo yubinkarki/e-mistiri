@@ -7,6 +7,7 @@ export default {
   productCardBackground: '#FAFAFF',
   productCardPrice: '#4E61D6',
   splashScreenBG: '#41416E',
+  productDetailsBG: '#EDEDED',
   textLink: '#212E7E',
   subtitleText: '#8F93AF',
   dashboardProductCategory: '#F1F1F1',
