@@ -6,6 +6,7 @@ import LaunchGallery from './LaunchGallery';
 import LaunchCamera from './LaunchCamera';
 import HideToastOnBack from './BackPress';
 import {totalAmount, totalCount} from './CalculateTotal';
+import {MainAPI} from './MainAPI';
 
 export {
   BlurInputFocus,
@@ -17,4 +18,5 @@ export {
   HideToastOnBack,
   totalAmount,
   totalCount,
+  MainAPI,
 };
