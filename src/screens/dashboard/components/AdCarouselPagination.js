@@ -26,7 +26,7 @@ export default function AdCarouselPagination({data, renderItem, customStyles}) {
       />
 
       <Pagination
-        dotsLength={data.length}
+        dotsLength={data?.length || 0}
         activeDotIndex={carouselIndex}
         carouselRef={isCarousel}
         containerStyle={{...Styles.paginationContainer, ...customStyles}}
