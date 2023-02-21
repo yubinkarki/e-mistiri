@@ -6,6 +6,7 @@ import LaunchGallery from './LaunchGallery';
 import LaunchCamera from './LaunchCamera';
 import HideToastOnBack from './BackPress';
 import {totalAmount, totalCount} from './CalculateTotal';
+import GetImage from './GetImage';
 import {MainAPI} from './MainAPI';
 
 export {
@@ -18,5 +19,6 @@ export {
   HideToastOnBack,
   totalAmount,
   totalCount,
+  GetImage,
   MainAPI,
 };
