@@ -14,7 +14,7 @@ export default function SmallProductCard({data, onPressHandler}) {
       activeOpacity={0.84}
       onPress={onPressHandler}>
       <View style={Styles.imageContainer}>
-        {<data.image height="90%" width="90%" />}
+        {<data.images height="90%" width="90%" />}
       </View>
 
       <View style={Styles.textContainer}>
