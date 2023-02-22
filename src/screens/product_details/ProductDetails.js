@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   heightPercentageToDP as hp,
@@ -14,13 +14,22 @@ import {
   ProductCounter,
   SmallProductCard,
 } from '@app/commons';
-import {Colors, Images} from '@app/constants';
+import {GetImage} from '@app/utils';
+import {Colors} from '@app/constants';
 import {AdCarouselPagination} from '../dashboard/components';
 import {ProductDetailsStyles as Styles} from '@app/assets/styles';
 
-const productImages = [{image: Images.gearBox}, {image: Images.engineFilter}];
+export default function ProductDetails({route}) {
+  const dynamicProductData = route.params;
 
-export default function ProductDetails() {
+  const productImages = dynamicProductData?.images?.map(item => {
+    return {
+      image: GetImage(item),
+    };
+  });
+
+  console.log('productImages', productImages);
+
   const {allProducts} = useSelector(state => state?.product || []);
 
   const carouselImageItem = ({item}) => (
@@ -28,7 +37,10 @@ export default function ProductDetails() {
   );
 
   const smallProductCard = ({item}) => (
-    <SmallProductCard data={item} onPressHandler={() => {}} />
+    <SmallProductCard
+      data={{...item, images: item.images[0]}}
+      onPressHandler={() => {}}
+    />
   );
 
   const ListSeparator = () => <View style={{width: wp('5%')}} />;
@@ -42,7 +54,7 @@ export default function ProductDetails() {
         style={Styles.topContainer}>
         <View style={Styles.carouselContainer}>
           <AdCarouselPagination
-            data={productImages}
+            data={Array.isArray(productImages) && productImages}
             renderItem={carouselImageItem}
             customStyles={CustomStyles.paginationContainer}
           />
@@ -54,10 +66,10 @@ export default function ProductDetails() {
           <View style={Styles.titleContainer}>
             <View style={Styles.titleLeftContainer}>
               <Text style={Styles.subtitle} numberOfLines={1}>
-                BRAKE PAD
+                {dynamicProductData?.subtitle || 'Subtitle'}
               </Text>
               <Text style={Styles.title} numberOfLines={1}>
-                FZ BRAKE PAD
+                {dynamicProductData?.title || 'Title'}
               </Text>
             </View>
 
@@ -71,20 +83,19 @@ export default function ProductDetails() {
                 />
 
                 <Text style={Styles.subtitle} numberOfLines={1}>
-                  (4.5)
+                  ({dynamicProductData?.rating || 0.0})
                 </Text>
               </View>
 
               <Text style={Styles.title} numberOfLines={1}>
-                Rs. 1399
+                {`Rs. ${dynamicProductData?.price || 0}`}
               </Text>
             </View>
           </View>
 
           <View style={Styles.descriptionContainer}>
             <Text style={Styles.subtitle} numberOfLines={2}>
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint
+              {dynamicProductData?.description || 'Description'}
             </Text>
           </View>
 
