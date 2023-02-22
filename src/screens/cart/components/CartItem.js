@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 
+import {GetImage} from '@app/utils';
 import {Images} from '@app/constants';
 import {ProductCounter} from '@app/commons';
 import {CartItemStyles as Styles} from '@app/assets/styles';
@@ -17,10 +18,14 @@ export default function CartItem({
   toggle,
   count,
 }) {
+  const CartItemImage = GetImage(image);
+
   return (
     <View style={Styles.mainContainer}>
       <View style={Styles.leftContainer}>
-        <View style={Styles.imageContainer}>{image}</View>
+        <View style={Styles.imageContainer}>
+          {<CartItemImage height="90%" width="90%" />}
+        </View>
 
         <View style={Styles.textContainer}>
           <Text numberOfLines={1} style={Styles.title}>
