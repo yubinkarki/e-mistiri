@@ -11,6 +11,9 @@ export default GetImage = image => {
     case 'gearBox':
       return Images.gearBox;
 
+    case 'regularService':
+      return Images.regularService;
+
     default:
       return 'No image found';
   }
