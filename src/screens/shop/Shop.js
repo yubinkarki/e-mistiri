@@ -20,7 +20,11 @@ export default function Shop() {
   const {allProducts} = useSelector(state => state?.product || {});
 
   const productListItem = ({item}) => (
-    <ProductCard key={item.id} data={item} onPress={() => {}} />
+    <ProductCard
+      key={item.id}
+      data={{...item, images: item.images[0]}}
+      onPress={() => {}}
+    />
   );
 
   return (
