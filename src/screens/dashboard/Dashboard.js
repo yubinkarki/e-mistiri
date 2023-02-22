@@ -56,8 +56,8 @@ export default function Dashboard({navigation}) {
     />
   );
 
-  const productCardPressHandler = () => {
-    navigation.navigate('ProductDetails');
+  const productCardPressHandler = item => {
+    navigation.navigate('ProductDetails', item);
   };
 
   return (
@@ -105,8 +105,8 @@ export default function Dashboard({navigation}) {
             ? allProducts.map(item => (
                 <ProductCard
                   key={item.id}
-                  data={item}
-                  onPress={productCardPressHandler}
+                  data={{...item, images: item.images[0]}}
+                  onPress={() => productCardPressHandler(item)}
                 />
               ))
             : []}
