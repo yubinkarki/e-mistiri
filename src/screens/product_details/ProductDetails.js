@@ -6,7 +6,7 @@ import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
 import FA from 'react-native-vector-icons/FontAwesome';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
 import {
   CommentButton,
@@ -16,10 +16,13 @@ import {
 } from '@app/commons';
 import {GetImage} from '@app/utils';
 import {Colors} from '@app/constants';
+import {addProduct} from '@app/redux/slices';
 import {AdCarouselPagination} from '../dashboard/components';
 import {ProductDetailsStyles as Styles} from '@app/assets/styles';
 
 export default function ProductDetails({route}) {
+  const dispatch = useDispatch();
+
   const dynamicProductData = route.params;
 
   const productImages = dynamicProductData?.images?.map(item => {
@@ -44,6 +47,20 @@ export default function ProductDetails({route}) {
   );
 
   const ListSeparator = () => <View style={{width: wp('5%')}} />;
+
+  const addToCartHandler = () => {
+    const productData = {
+      id: dynamicProductData?.id || 0,
+      title: dynamicProductData?.title || 'Title',
+      subtitle: dynamicProductData?.subtitle || 'Subtitle',
+      price: dynamicProductData?.price || 0,
+      discountedPrice: dynamicProductData?.discountedPrice || null,
+      image: dynamicProductData?.images[0] || 'No Image',
+      count: 1,
+    };
+
+    dispatch(addProduct(productData));
+  };
 
   return (
     <View style={Styles.mainContainer}>
@@ -120,7 +137,7 @@ export default function ProductDetails({route}) {
                 buttonIconName="cart-outline"
                 buttonIconSize={22}
                 buttonIconColor={Colors.white}
-                onPressHandler={() => {}}
+                onPressHandler={addToCartHandler}
               />
             </View>
           </View>
