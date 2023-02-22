@@ -61,6 +61,7 @@ export const ProductDetailsStyles = StyleSheet.create({
   },
   descriptionContainer: {
     paddingTop: hp('2%'),
+    height: hp("7%")
   },
   buttonsContainer: {
     paddingTop: hp('3.5%'),

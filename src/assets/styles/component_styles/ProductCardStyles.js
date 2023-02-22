@@ -22,6 +22,7 @@ export const ProductCardStyles = StyleSheet.create({
   },
   textContainer: {
     paddingLeft: wp('4%'),
+    width: wp("38%")
   },
   title: {
     ...TextStyles.poppinsRegularNormal,
