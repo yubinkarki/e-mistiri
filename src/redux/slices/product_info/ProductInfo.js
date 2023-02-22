@@ -9,7 +9,7 @@ const initialState = {
       title: 'Engine Filter',
       subtitle: 'Yamaha Engine Filter',
       price: 1540,
-      images: [Images.engineFilter, Images.brakePad],
+      images: ['engineFilter', 'brakePad'],
       rating: 3.2,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -19,7 +19,7 @@ const initialState = {
       title: 'Brake Pad',
       subtitle: 'FZ Brake Pad',
       price: 1240,
-      images: [Images.brakePad, Images.engineFilter, Images.gearBox],
+      images: ['brakePad', 'engineFilter', 'gearBox'],
       rating: 4.3,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -29,7 +29,7 @@ const initialState = {
       title: 'Clutch Wire',
       subtitle: 'KTM Duke Clutch Wire',
       price: 640,
-      images: [Images.gearBox, Images.brakePad],
+      images: ['brakePad', 'gearBox'],
       rating: 5.0,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -39,7 +39,7 @@ const initialState = {
       title: 'Chain Sprocket',
       subtitle: 'Royal Enfield Sprocket',
       price: 140,
-      images: [Images.engineFilter, Images.brakePad],
+      images: ['engineFilter', 'brakePad'],
       rating: 3.1,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -49,7 +49,7 @@ const initialState = {
       title: 'Handle Bar',
       subtitle: 'Honda Highness Handle Bars',
       price: 40,
-      images: [Images.brakePad, Images.engineFilter, Images.gearBox],
+      images: ['brakePad', 'engineFilter', 'gearBox'],
       rating: 2.8,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -59,7 +59,7 @@ const initialState = {
       title: 'Side Mirror',
       subtitle: 'Dio Side Mirrors',
       price: 790,
-      images: [Images.gearBox, Images.engineFilter, Images.brakePad],
+      images: ['gearBox', 'engineFilter', 'brakePad'],
       rating: 2.5,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -69,7 +69,7 @@ const initialState = {
       title: 'Oil Filter',
       subtitle: 'Vespa Oil Filter',
       price: 440,
-      images: [Images.gearBox, Images.engineFilter],
+      images: ['gearBox', 'engineFilter'],
       rating: 4.5,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
@@ -79,7 +79,7 @@ const initialState = {
       title: 'Air Filter',
       subtitle: 'Thuderbird Air Filter',
       price: 2239,
-      images: [Images.brakePad, Images.gearBox],
+      images: ['brakePad', 'gearBox'],
       rating: 4.1,
       description:
         'Mamet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint',
