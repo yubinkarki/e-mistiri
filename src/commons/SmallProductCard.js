@@ -5,16 +5,19 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+import {GetImage} from '@app/utils';
 import {Colors, TextStyles} from '@app/constants';
 
 export default function SmallProductCard({data, onPressHandler}) {
+  const ProductImage = GetImage(data?.images);
+
   return (
     <TouchableOpacity
       style={Styles.mainContainer}
       activeOpacity={0.84}
       onPress={onPressHandler}>
       <View style={Styles.imageContainer}>
-        {<data.images height="90%" width="90%" />}
+        {<ProductImage height="90%" width="90%" />}
       </View>
 
       <View style={Styles.textContainer}>
