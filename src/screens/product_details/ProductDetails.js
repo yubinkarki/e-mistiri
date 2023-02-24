@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
@@ -25,13 +25,34 @@ export default function ProductDetails({route}) {
 
   const dynamicProductData = route.params;
 
+  const [productCount, setProductCount] = useState(1);
+
+  const counterIncrement = () => {
+    if (productCount < 10) {
+      setProductCount(productCount + 1);
+    } else {
+      Alert.alert(
+        'Limit Reached',
+        'You can only add 10 of each item',
+        [{text: 'Got It'}],
+        {
+          cancelable: true,
+        },
+      );
+    }
+  };
+
+  const counterDecrement = () => {
+    if (productCount > 1) {
+      setProductCount(productCount - 1);
+    }
+  };
+
   const productImages = dynamicProductData?.images?.map(item => {
     return {
       image: GetImage(item),
     };
   });
-
-  console.log('productImages', productImages);
 
   const {allProducts} = useSelector(state => state?.product || []);
 
@@ -56,7 +77,7 @@ export default function ProductDetails({route}) {
       price: dynamicProductData?.price || 0,
       discountedPrice: dynamicProductData?.discountedPrice || null,
       image: dynamicProductData?.images[0] || 'No Image',
-      count: 1,
+      count: productCount,
     };
 
     dispatch(addProduct(productData));
@@ -118,9 +139,11 @@ export default function ProductDetails({route}) {
 
           <View style={Styles.buttonsContainer}>
             <ProductCounter
-              value={1}
+              value={productCount}
               customStyles={CustomStyles.productCounter}
               iconSize={28}
+              counterPlusHandler={counterIncrement}
+              counterMinusHandler={counterDecrement}
             />
 
             <View style={Styles.buttonsRightContainer}>
