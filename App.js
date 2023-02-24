@@ -7,7 +7,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Toast from 'react-native-toast-message';
 
 import {AuthStack, MainStack} from '@app/routes';
-import {BlurInputFocus, HideToastOnBack} from '@app/utils';
+import {BlurInputFocus, HideToastOnBack, toastConfig} from '@app/utils';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,7 +33,7 @@ export default function App() {
           )}
         </Stack.Navigator>
 
-        <Toast />
+        <Toast config={toastConfig} />
       </GestureHandlerRootView>
     </NavigationContainer>
   );

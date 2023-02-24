@@ -12,7 +12,7 @@ import {
   LogoutCard,
 } from './components';
 import {Colors, Images} from '@app/constants';
-import {WaitTimeout} from '@app/utils';
+import {ShowToast, WaitTimeout} from '@app/utils';
 import {logoutUser} from '@app/redux/slices';
 import {AccountStyles as Styles} from '@app/assets/styles';
 

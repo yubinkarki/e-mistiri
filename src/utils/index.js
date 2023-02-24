@@ -5,8 +5,10 @@ import CapitalizeFirstLetter from './CapitalizeFirstLetter';
 import LaunchGallery from './LaunchGallery';
 import LaunchCamera from './LaunchCamera';
 import HideToastOnBack from './BackPress';
-import {totalAmount, totalCount} from './CalculateTotal';
 import GetImage from './GetImage';
+import toastConfig from './ToastConfig';
+
+import {totalAmount, totalCount} from './CalculateTotal';
 import {MainAPI} from './MainAPI';
 
 export {
@@ -21,4 +23,5 @@ export {
   totalCount,
   GetImage,
   MainAPI,
+  toastConfig
 };
