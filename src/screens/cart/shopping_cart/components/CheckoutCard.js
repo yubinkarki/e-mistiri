@@ -14,7 +14,9 @@ export default function CheckoutCard({totalAmount, onPress}) {
       <View style={Styles.leftContainer}>
         <Text style={Styles.title}>Total</Text>
 
-        <Text style={Styles.price}>{`Rs. ${totalAmount}`}</Text>
+        <Text style={Styles.price}>
+          {totalAmount ? `Rs. ${totalAmount}` : 'Rs. 0'}
+        </Text>
       </View>
 
       <View style={Styles.rightContainer}>
