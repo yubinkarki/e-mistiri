@@ -24,7 +24,7 @@ export default function CartItem({
     <View style={Styles.mainContainer}>
       <View style={Styles.leftContainer}>
         <View style={Styles.imageContainer}>
-          {<CartItemImage height="90%" width="90%" />}
+          {image ? <CartItemImage height="90%" width="90%" /> : null}
         </View>
 
         <View style={Styles.textContainer}>
