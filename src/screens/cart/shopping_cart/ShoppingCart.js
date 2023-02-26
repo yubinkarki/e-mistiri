@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet, Text} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {
@@ -11,12 +11,18 @@ import {increaseCount, decreaseCount, removeCartItem} from '@app/redux/slices';
 import {CartItem} from '../components';
 import {CheckoutCard} from './components';
 import {Colors, TextStyles} from '@app/constants';
-import {ShowToast, totalAmount} from '@app/utils';
+import {getRandom, ShowToast, totalAmount} from '@app/utils';
 
 export default function ShoppingCart({navigation}) {
   const dispatch = useDispatch();
 
-  const {cartProducts} = useSelector(state => state?.cart || []);
+  const {cartProducts} = useSelector(state => state.cart);
+
+  const [cartItem, setCartItem] = useState(cartProducts);
+
+  useEffect(() => {
+    setCartItem(cartProducts);
+  }, [cartProducts]);
 
   const counterIncrement = itemId => {
     dispatch(increaseCount(itemId));
@@ -61,12 +67,12 @@ export default function ShoppingCart({navigation}) {
 
   return (
     <View style={Styles.mainContainer}>
-      {Array.isArray(cartProducts) && cartProducts.length ? (
+      {Array.isArray(cartItem) && cartItem.length ? (
         <FlatList
           ItemSeparatorComponent={Separator}
           contentContainerStyle={Styles.listContainer}
-          data={cartProducts}
-          keyExtractor={data => data.id}
+          data={cartItem}
+          keyExtractor={data => data?.id || getRandom(100, 1000)}
           renderItem={cartItems}
         />
       ) : (
@@ -81,7 +87,7 @@ export default function ShoppingCart({navigation}) {
 
       <View style={Styles.checkoutContainer}>
         <CheckoutCard
-          totalAmount={totalAmount(cartProducts)}
+          totalAmount={totalAmount(cartItem)}
           onPress={checkoutHandler}
         />
       </View>
