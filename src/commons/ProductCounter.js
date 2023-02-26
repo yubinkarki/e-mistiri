@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -9,16 +9,20 @@ import {Colors, TextStyles, Images} from '@app/constants';
 
 export default function ProductCounter({
   value,
-  counterPlusHandler,
-  counterMinusHandler,
+  counterPlusHandler = null,
+  counterMinusHandler = null,
   customStyles,
   iconSize = 24,
 }) {
   const [count, setCount] = useState(value || 0);
 
+  useEffect(() => {
+    setCount(value);
+  }, [value]);
+
   const counterIncrement = () => {
     if (count < 10) {
-      counterPlusHandler();
+      counterPlusHandler && counterPlusHandler();
       setCount(count + 1);
     } else {
       Alert.alert(
@@ -34,7 +38,7 @@ export default function ProductCounter({
 
   const counterDecrement = () => {
     if (count > 1) {
-      counterMinusHandler();
+      counterMinusHandler && counterMinusHandler();
       setCount(count - 1);
     }
   };
