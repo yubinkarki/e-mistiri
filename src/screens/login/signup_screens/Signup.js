@@ -11,6 +11,7 @@ import {useDispatch} from 'react-redux';
 import {useForm} from 'react-hook-form';
 import {Checkbox} from 'react-native-paper';
 import Spinner from 'react-native-loading-spinner-overlay';
+import Toast from 'react-native-toast-message';
 
 import {InputRules} from '../components';
 import {Colors, Images} from '@app/constants';
@@ -186,7 +187,11 @@ export default function Signup({navigation}) {
 
       <View style={Styles.signupFooterContainer}>
         <Text style={Styles.footerText}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <TouchableOpacity
+          onPress={() => {
+            Toast.hide();
+            navigation.navigate('Login');
+          }}>
           <Text style={Styles.footerLinkText}>Login</Text>
         </TouchableOpacity>
       </View>

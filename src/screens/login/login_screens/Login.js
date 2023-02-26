@@ -9,6 +9,7 @@ import {
 import {useForm} from 'react-hook-form';
 import {useDispatch} from 'react-redux';
 import Spinner from 'react-native-loading-spinner-overlay';
+import Toast from 'react-native-toast-message';
 
 import {InputRules} from '../components';
 import {InputField, PrimaryButton} from '@app/commons';
@@ -119,6 +120,7 @@ export default function Login({navigation}) {
 
           <TouchableOpacity
             onPress={() => {
+              Toast.hide();
               navigation.navigate('Signup');
             }}>
             <Text style={Styles.footerLinkText}>Join us</Text>
