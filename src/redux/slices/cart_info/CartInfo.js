@@ -1,7 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-import {Images} from '@app/constants';
-
 const initialState = {
   cartProducts: [],
 };
@@ -26,7 +24,26 @@ export const CartInfo = createSlice({
       );
     },
     addProduct: (state, action) => {
-      state.cartProducts = [...state.cartProducts, action.payload];
+      if (state.cartProducts.length) {
+        const doesItemAlreadyExist = state.cartProducts.some(
+          item => item.id === action.payload.id,
+        );
+
+        if (doesItemAlreadyExist) {
+          state.cartProducts = state.cartProducts.map(item =>
+            item.id === action.payload.id
+              ? {
+                  ...item,
+                  count: item.count + action.payload.count,
+                }
+              : {...item},
+          );
+        } else {
+          state.cartProducts = [...state.cartProducts, action.payload];
+        }
+      } else {
+        state.cartProducts = [...state.cartProducts, action.payload];
+      }
     },
   },
 });
