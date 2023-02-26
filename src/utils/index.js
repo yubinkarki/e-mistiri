@@ -7,6 +7,7 @@ import LaunchCamera from './LaunchCamera';
 import HideToastOnBack from './BackPress';
 import GetImage from './GetImage';
 import toastConfig from './ToastConfig';
+import getRandom from './RandomNumber';
 
 import {totalAmount, totalCount} from './CalculateTotal';
 import {MainAPI} from './MainAPI';
@@ -23,5 +24,6 @@ export {
   totalCount,
   GetImage,
   MainAPI,
-  toastConfig
+  toastConfig,
+  getRandom,
 };
