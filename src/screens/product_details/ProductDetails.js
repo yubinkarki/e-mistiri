@@ -19,13 +19,20 @@ import {Colors} from '@app/constants';
 import {addProduct} from '@app/redux/slices';
 import {AdCarouselPagination} from '../dashboard/components';
 import {ProductDetailsStyles as Styles} from '@app/assets/styles';
+import {AddToCartMenu} from './components';
 
-export default function ProductDetails({route}) {
+export default function ProductDetails({route, navigation}) {
   const dispatch = useDispatch();
 
   const dynamicProductData = route.params;
 
-  const [productCount, setProductCount] = useState(1);
+  const {allProducts} = useSelector(state => state?.product || []);
+
+  const [showAddToCartMenu, setShowAddToCartMenu] = useState(false);
+
+  const [productCount, setProductCount] = useState(
+    dynamicProductData?.count || 1,
+  );
 
   const counterIncrement = () => {
     if (productCount < 10) {
@@ -54,8 +61,6 @@ export default function ProductDetails({route}) {
     };
   });
 
-  const {allProducts} = useSelector(state => state?.product || []);
-
   const carouselImageItem = ({item}) => (
     <item.image height="100%" width="100%" />
   );
@@ -81,10 +86,18 @@ export default function ProductDetails({route}) {
     };
 
     dispatch(addProduct(productData));
+
+    setShowAddToCartMenu(true);
   };
 
   return (
     <View style={Styles.mainContainer}>
+      <AddToCartMenu
+        modalState={showAddToCartMenu}
+        modalChange={setShowAddToCartMenu}
+        navigation={navigation}
+      />
+
       <LinearGradient
         start={{x: 0.5, y: 0.2}}
         colors={['#FFF', '#EDEDED']}
