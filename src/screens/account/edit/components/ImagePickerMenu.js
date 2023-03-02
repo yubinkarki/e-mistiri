@@ -46,9 +46,8 @@ export default function ImagePickerMenu({
               onPressHandler={() => {
                 LaunchCamera(setProfileImage);
                 closeModal();
-              }}>
-              Take a photo
-            </PrimaryButton>
+              }}
+            />
           </View>
 
           <View style={Styles.buttonContainer}>
