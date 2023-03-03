@@ -13,7 +13,7 @@ import {
 } from './components';
 import {Colors, Images} from '@app/constants';
 import {ShowToast, WaitTimeout} from '@app/utils';
-import {logoutUser} from '@app/redux/slices';
+import {clearCart, logoutUser} from '@app/redux/slices';
 import {AccountStyles as Styles} from '@app/assets/styles';
 
 export default function Account({navigation}) {
@@ -74,6 +74,7 @@ export default function Account({navigation}) {
       setFetching(false);
 
       dispatch(logoutUser());
+      dispatch(clearCart());
 
       ShowToast({
         type: 'success',
