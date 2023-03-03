@@ -37,7 +37,7 @@ A user is able to:
 ```
 - Node.js | NPM | NVM
 - Android SDK
-- JDK v18 (or above)
+- JDK v11 (as mentioned in the docs)
 - Gradle v7.5.1
 - Visual Studio Code
 - React Native Debugger
