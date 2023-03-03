@@ -14,6 +14,7 @@ export default {
   dashboardProductActiveCategory: '#C3C8E3',
   successToastBackground: "#EFF9EF",
   successToastLeftBorder: "#76D476",
+  successText: "#4B924B",
   countryCardBorder: '#E3E3E3',
   inputFieldIcon: '#868686',
   inputField: '#f5f5f5',
