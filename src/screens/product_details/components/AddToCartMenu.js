@@ -49,7 +49,7 @@ export default function AddToCartMenu({modalState, modalChange, navigation}) {
       <View style={Styles.cardContainer}>
         <View style={Styles.mainContainer}>
           <View style={Styles.titleContainer}>
-            <SLI name="check" color={Colors.gray} size={30}/>
+            <SLI name="check" color={Colors.successText} size={30}/>
 
             <Text style={Styles.title}>Success!</Text>
           </View>
@@ -101,11 +101,11 @@ const Styles = StyleSheet.create({
     width: wp("60%"),
     alignItems: "center",
     justifyContent: "center",
-    paddingBottom: hp('5%'),
+    paddingBottom: hp('4%'),
   },
   title: {
     ...TextStyles.poppinsExtraLargerNormal,
-    color: Colors.gray,
+    color: Colors.successText,
     paddingLeft: wp("2%")
   },
 });
