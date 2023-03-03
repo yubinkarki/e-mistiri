@@ -3,6 +3,7 @@ import CartInfoSlice, {
   decreaseCount,
   removeCartItem,
   addProduct,
+  clearCart,
 } from './CartInfo';
 
 export {
@@ -11,4 +12,5 @@ export {
   decreaseCount,
   removeCartItem,
   addProduct,
+  clearCart,
 };

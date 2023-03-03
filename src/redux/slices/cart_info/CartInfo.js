@@ -45,10 +45,18 @@ export const CartInfo = createSlice({
         state.cartProducts = [...state.cartProducts, action.payload];
       }
     },
+    clearCart: state => {
+      state.cartProducts = [];
+    },
   },
 });
 
-export const {increaseCount, decreaseCount, removeCartItem, addProduct} =
-  CartInfo.actions;
+export const {
+  increaseCount,
+  decreaseCount,
+  removeCartItem,
+  addProduct,
+  clearCart,
+} = CartInfo.actions;
 
 export default CartInfo.reducer;
