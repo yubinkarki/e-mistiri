@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import Modal from 'react-native-modal';
-import SLI from 'react-native-vector-icons/SimpleLineIcons'
+import SLI from 'react-native-vector-icons/SimpleLineIcons';
 
 import {Colors, TextStyles} from '@app/constants';
 import {PrimaryButton} from '@app/commons';
@@ -18,11 +18,11 @@ export default function AddToCartMenu({modalState, modalChange, navigation}) {
   const buttonPressHandler = selection => {
     switch (selection) {
       case 'dashboard':
-        navigation.navigate('Dashboard');
+        navigation.navigate('DashboardStack', {Screen: 'Dashboard'});
         break;
 
       case 'cart':
-        navigation.navigate('ShoppingCart');
+        navigation.navigate('CartStack', {Screen: 'ShoppingCart'});
         break;
 
       default:
@@ -49,7 +49,7 @@ export default function AddToCartMenu({modalState, modalChange, navigation}) {
       <View style={Styles.cardContainer}>
         <View style={Styles.mainContainer}>
           <View style={Styles.titleContainer}>
-            <SLI name="check" color={Colors.successText} size={30}/>
+            <SLI name="check" color={Colors.successText} size={30} />
 
             <Text style={Styles.title}>Success!</Text>
           </View>
@@ -96,16 +96,16 @@ const Styles = StyleSheet.create({
   buttonContainer: {
     marginBottom: hp('2%'),
   },
-  titleContainer:{
-    flexDirection: "row",
-    width: wp("60%"),
-    alignItems: "center",
-    justifyContent: "center",
+  titleContainer: {
+    flexDirection: 'row',
+    width: wp('60%'),
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingBottom: hp('4%'),
   },
   title: {
     ...TextStyles.poppinsExtraLargerNormal,
     color: Colors.successText,
-    paddingLeft: wp("2%")
+    paddingLeft: wp('2%'),
   },
 });
