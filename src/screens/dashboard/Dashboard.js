@@ -24,6 +24,7 @@ export default function Dashboard({navigation}) {
   } = useForm();
 
   const {allProducts} = useSelector(state => state?.product || []);
+  const {cartProducts} = useSelector(state => state?.cart || []);
 
   const [vehicleCategory, setVehicleCategory] = useState(VehicleCategoryData);
 
@@ -57,7 +58,23 @@ export default function Dashboard({navigation}) {
   );
 
   const productCardPressHandler = item => {
-    navigation.navigate('ProductDetails', item);
+    let modifiedItem = {...item, count: 1};
+
+    if (Array.isArray(cartProducts) && cartProducts.length) {
+      const doesItemAlreadyExist = cartProducts.some(
+        product => product.id === item.id,
+      );
+
+      if (doesItemAlreadyExist) {
+        cartProducts.find(product => {
+          if (product.id === item.id) {
+            modifiedItem = {...modifiedItem, count: product.count};
+          }
+        });
+      }
+    }
+
+    navigation.navigate('ProductDetails', modifiedItem);
   };
 
   return (
