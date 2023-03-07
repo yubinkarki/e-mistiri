@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, FlatList} from 'react-native';
+import {View, Text, StyleSheet, FlatList, Alert} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {
   heightPercentageToDP as hp,
@@ -30,17 +30,21 @@ export default function ProductDetails({route, navigation}) {
 
   const [showAddToCartMenu, setShowAddToCartMenu] = useState(false);
 
-  const [productCount, setProductCount] = useState(
-    dynamicProductData?.count || 1,
-  );
+  const [productCount, setProductCount] = useState(1);
 
   const counterIncrement = () => {
-    if (productCount < 10) {
+    const remainingCount = 10 - dynamicProductData?.count;
+
+    if (productCount + dynamicProductData?.count < 10) {
       setProductCount(productCount + 1);
     } else {
       Alert.alert(
-        'Limit Reached',
-        'You can only add 10 of each item',
+        'Limit Reached | 10 Max',
+        dynamicProductData?.count >= 10
+          ? `You already have ${dynamicProductData?.count} of this item. You can not add any more.`
+          : remainingCount < 0
+          ? `You have added the maximum number per item. Please continue to checkout.`
+          : `You already have ${dynamicProductData?.count} of this item. You can only add ${remainingCount} more.`,
         [{text: 'Got It'}],
         {
           cancelable: true,
@@ -153,6 +157,7 @@ export default function ProductDetails({route, navigation}) {
           <View style={Styles.buttonsContainer}>
             <ProductCounter
               value={productCount}
+              setValue={setProductCount}
               customStyles={CustomStyles.productCounter}
               iconSize={28}
               counterPlusHandler={counterIncrement}
