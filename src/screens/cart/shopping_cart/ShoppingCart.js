@@ -56,8 +56,8 @@ export default function ShoppingCart({navigation}) {
       discountedPrice={item?.discountedPrice}
       image={item?.image}
       count={item?.count}
-      counterPlusHandler={() => counterIncrement(item?.id)}
-      counterMinusHandler={() => counterDecrement(item?.id)}
+      counterPlusHandler={() => counterIncrement(item)}
+      counterMinusHandler={() => counterDecrement(item)}
       removeCartItemHandler={() => removeCartItemHandler(item?.id)}
       toggle
     />
