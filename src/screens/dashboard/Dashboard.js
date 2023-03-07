@@ -58,7 +58,7 @@ export default function Dashboard({navigation}) {
   );
 
   const productCardPressHandler = item => {
-    let modifiedItem = {...item, count: 1};
+    let modifiedItem = {...item, count: 0};
 
     if (Array.isArray(cartProducts) && cartProducts.length) {
       const doesItemAlreadyExist = cartProducts.some(
