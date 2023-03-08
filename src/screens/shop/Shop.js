@@ -11,19 +11,40 @@ import {
 import {FilterButton, InputField, ProductCard} from '@app/commons';
 import {Colors, Images} from '@app/constants';
 
-export default function Shop() {
+export default function Shop({navigation}) {
   const {
     control,
     formState: {errors},
   } = useForm();
 
-  const {allProducts} = useSelector(state => state?.product || {});
+  const {allProducts} = useSelector(state => state?.product || []);
+  const {cartProducts} = useSelector(state => state?.cart || []);
+
+  const productCardPressHandler = item => {
+    let modifiedItem = {...item, count: 0};
+
+    if (Array.isArray(cartProducts) && cartProducts.length) {
+      const doesItemAlreadyExist = cartProducts.some(
+        product => product.id === item.id,
+      );
+
+      if (doesItemAlreadyExist) {
+        cartProducts.find(product => {
+          if (product.id === item.id) {
+            modifiedItem = {...modifiedItem, count: product.count};
+          }
+        });
+      }
+    }
+
+    navigation.navigate('ProductDetails', modifiedItem);
+  };
 
   const productListItem = ({item}) => (
     <ProductCard
       key={item.id}
       data={{...item, images: item.images[0]}}
-      onPress={() => {}}
+      onPress={() => productCardPressHandler(item)}
     />
   );
 
