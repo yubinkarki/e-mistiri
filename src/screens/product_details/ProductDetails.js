@@ -42,8 +42,8 @@ export default function ProductDetails({route, navigation}) {
         'Limit Reached | 10 Max',
         dynamicProductData?.count >= 10
           ? `You already have ${dynamicProductData?.count} of this item. You can not add any more.`
-          : remainingCount < 0
-          ? `You have added the maximum number per item. Please continue to checkout.`
+          : productCount >= 10
+          ? `You have selected maximum number per item. Please continue to checkout.`
           : `You already have ${dynamicProductData?.count} of this item. You can only add ${remainingCount} more.`,
         [{text: 'Got It'}],
         {
@@ -157,7 +157,6 @@ export default function ProductDetails({route, navigation}) {
           <View style={Styles.buttonsContainer}>
             <ProductCounter
               value={productCount}
-              setValue={setProductCount}
               customStyles={CustomStyles.productCounter}
               iconSize={28}
               counterPlusHandler={counterIncrement}
