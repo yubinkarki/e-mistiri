@@ -10,16 +10,9 @@ export const CartInfo = createSlice({
   initialState,
   reducers: {
     increaseCount: (state, action) => {
-      state.cartProducts.find(item => {
-        if (item.id === action.payload.id) {
-          item.count + action.payload.count < 10
-            ? {
-                ...item,
-                count: item.count++,
-              }
-            : (state.counterError = true);
-        }
-      });
+      state.cartProducts.find(
+        item => item.id === action.payload.id && {...item, count: item.count++},
+      );
     },
     decreaseCount: (state, action) => {
       state.cartProducts.find(
