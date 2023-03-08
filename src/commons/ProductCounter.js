@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import {
   heightPercentageToDP as hp,
@@ -14,44 +14,15 @@ export default function ProductCounter({
   customStyles,
   iconSize = 24,
 }) {
-  const [count, setCount] = useState(value || 0);
-
-  useEffect(() => {
-    setCount(value);
-  }, [value]);
-
-  const counterIncrement = () => {
-    if (count < 10) {
-      counterPlusHandler && counterPlusHandler();
-      setCount(count + 1);
-    } else {
-      Alert.alert(
-        'Limit Reached',
-        'You can only add 10 of each item',
-        [{text: 'Got It'}],
-        {
-          cancelable: true,
-        },
-      );
-    }
-  };
-
-  const counterDecrement = () => {
-    if (count > 1) {
-      counterMinusHandler && counterMinusHandler();
-      setCount(count - 1);
-    }
-  };
-
   return (
     <View style={{...Styles.mainContainer, ...customStyles}}>
-      <TouchableOpacity activeOpacity={0.5} onPress={counterDecrement}>
+      <TouchableOpacity activeOpacity={0.5} onPress={counterMinusHandler}>
         <Images.counterMinus width={iconSize} />
       </TouchableOpacity>
 
-      <Text style={Styles.text}>{count}</Text>
+      <Text style={Styles.text}>{value}</Text>
 
-      <TouchableOpacity activeOpacity={0.5} onPress={counterIncrement}>
+      <TouchableOpacity activeOpacity={0.5} onPress={counterPlusHandler}>
         <Images.counterPlus width={iconSize} />
       </TouchableOpacity>
     </View>
