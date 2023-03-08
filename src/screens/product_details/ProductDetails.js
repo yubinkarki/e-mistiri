@@ -27,6 +27,7 @@ export default function ProductDetails({route, navigation}) {
   const dynamicProductData = route.params;
 
   const {allProducts} = useSelector(state => state?.product || []);
+  const {cartProducts} = useSelector(state => state?.cart || []);
 
   const [showAddToCartMenu, setShowAddToCartMenu] = useState(false);
 
@@ -69,10 +70,30 @@ export default function ProductDetails({route, navigation}) {
     <item.image height="100%" width="100%" />
   );
 
+  const smallCardPressHandler = item => {
+    let modifiedItem = {...item, count: 0};
+
+    if (Array.isArray(cartProducts) && cartProducts.length) {
+      const doesItemAlreadyExist = cartProducts.some(
+        product => product.id === item.id,
+      );
+
+      if (doesItemAlreadyExist) {
+        cartProducts.find(product => {
+          if (product.id === item.id) {
+            modifiedItem = {...modifiedItem, count: product.count};
+          }
+        });
+      }
+    }
+
+    navigation.navigate('ProductDetails', modifiedItem);
+  };
+
   const smallProductCard = ({item}) => (
     <SmallProductCard
       data={{...item, images: item.images[0]}}
-      onPressHandler={() => {}}
+      onPressHandler={() => smallCardPressHandler(item)}
     />
   );
 
