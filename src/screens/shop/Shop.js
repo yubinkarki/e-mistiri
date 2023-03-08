@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {useForm} from 'react-hook-form';
 import {TextInput} from 'react-native-paper';
@@ -7,18 +7,27 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import Spinner from 'react-native-loading-spinner-overlay';
 
-import {FilterButton, InputField, ProductCard} from '@app/commons';
+import {SearchSubmit} from '@app/utils';
 import {Colors, Images} from '@app/constants';
+import {FilterButton, InputField, ProductCard} from '@app/commons';
 
 export default function Shop({navigation}) {
   const {
     control,
+    handleSubmit,
     formState: {errors},
   } = useForm();
 
   const {allProducts} = useSelector(state => state?.product || []);
   const {cartProducts} = useSelector(state => state?.cart || []);
+
+  const [searching, setSearching] = useState(false);
+
+  const searchSubmitHandler = data => {
+    SearchSubmit(data, setSearching, true);
+  };
 
   const productCardPressHandler = item => {
     let modifiedItem = {...item, count: 0};
@@ -50,6 +59,13 @@ export default function Shop({navigation}) {
 
   return (
     <View style={Styles.mainContainer}>
+      <Spinner
+        visible={searching}
+        color={Colors.white}
+        overlayColor={Colors.overlaySpinnerBackground}
+        animation="fade"
+      />
+
       <View style={Styles.searchContainer}>
         <InputField
           control={control}
@@ -58,10 +74,11 @@ export default function Shop({navigation}) {
           labelText="Search for products"
           customStyles={{width: wp('76%')}}
           left={<TextInput.Icon icon={Images.searchIcon} />}
+          onSubmitEditing={handleSubmit(searchSubmitHandler)}
         />
 
         <View style={Styles.filterButtonContainer}>
-          <FilterButton />
+          <FilterButton onPress={handleSubmit(searchSubmitHandler)} />
         </View>
       </View>
 

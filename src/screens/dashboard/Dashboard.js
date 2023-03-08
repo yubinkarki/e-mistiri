@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {View, StatusBar, ScrollView, FlatList} from 'react-native';
+import {View, StatusBar, ScrollView, FlatList, Alert} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {useForm} from 'react-hook-form';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {useSelector} from 'react-redux';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import {Colors, Images} from '@app/constants';
 import {InputField, FilterButton, ProductCard} from '@app/commons';
@@ -15,18 +16,25 @@ import {
   VehicleCategoryData,
   SegmentedProductCategory,
 } from './components';
+import {SearchSubmit} from '@app/utils';
 import {DashboardStyles as Styles} from '@app/assets/styles';
 
 export default function Dashboard({navigation}) {
   const {
     control,
+    handleSubmit,
     formState: {errors},
   } = useForm();
 
   const {allProducts} = useSelector(state => state?.product || []);
   const {cartProducts} = useSelector(state => state?.cart || []);
 
+  const [searching, setSearching] = useState(false);
   const [vehicleCategory, setVehicleCategory] = useState(VehicleCategoryData);
+
+  const searchSubmitHandler = data => {
+    SearchSubmit(data, setSearching);
+  };
 
   const renderCarouselItem = ({item}) => (
     <View>
@@ -81,6 +89,13 @@ export default function Dashboard({navigation}) {
     <View style={Styles.mainContainer}>
       <StatusBar backgroundColor={Colors.white} />
 
+      <Spinner
+        visible={searching}
+        color={Colors.white}
+        overlayColor={Colors.overlaySpinnerBackground}
+        animation="fade"
+      />
+
       <View style={Styles.searchContainer}>
         <InputField
           control={control}
@@ -89,10 +104,11 @@ export default function Dashboard({navigation}) {
           labelText="Search for products"
           customStyles={{width: wp('70%')}}
           left={<TextInput.Icon icon={Images.searchIcon} />}
+          onSubmitEditing={handleSubmit(searchSubmitHandler)}
         />
 
         <View style={Styles.filterButtonContainer}>
-          <FilterButton />
+          <FilterButton onPress={handleSubmit(searchSubmitHandler)} />
         </View>
       </View>
 
