@@ -8,6 +8,7 @@ import HideToastOnBack from './BackPress';
 import GetImage from './GetImage';
 import toastConfig from './ToastConfig';
 import getRandom from './RandomNumber';
+import SearchSubmit from './SearchSubmit';
 
 import {totalAmount, totalCount} from './CalculateTotal';
 import {MainAPI} from './MainAPI';
@@ -26,4 +27,5 @@ export {
   MainAPI,
   toastConfig,
   getRandom,
+  SearchSubmit
 };
