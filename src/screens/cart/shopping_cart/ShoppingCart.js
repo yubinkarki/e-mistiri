@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, StyleSheet, Text} from 'react-native';
+import {View, FlatList, StyleSheet, Text, Alert} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {
   heightPercentageToDP as hp,
@@ -24,12 +24,21 @@ export default function ShoppingCart({navigation}) {
     setCartItem(cartProducts);
   }, [cartProducts]);
 
-  const counterIncrement = itemId => {
-    dispatch(increaseCount(itemId));
+  const counterIncrement = item => {
+    item?.count < 10
+      ? dispatch(increaseCount(item))
+      : Alert.alert(
+          'Limit Reached | 10 Max',
+          'You have selected maximum number per item. Please continue to checkout.',
+          [{text: 'Got It'}],
+          {
+            cancelable: true,
+          },
+        );
   };
 
-  const counterDecrement = itemId => {
-    dispatch(decreaseCount(itemId));
+  const counterDecrement = item => {
+    item?.count > 1 && dispatch(decreaseCount(item));
   };
 
   const removeCartItemHandler = itemId => {
