@@ -82,6 +82,7 @@ export default function Login({navigation}) {
             inputName="email"
             rules={InputRules.loginEmail}
             labelText="Email Address"
+            keyboardType='email-address'
           />
         </View>
 

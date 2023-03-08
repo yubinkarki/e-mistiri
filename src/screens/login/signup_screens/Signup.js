@@ -108,6 +108,7 @@ export default function Signup({navigation}) {
             rules={InputRules.email}
             labelText="Email Address"
             isPassword={false}
+            keyboardType="email-address"
           />
         </View>
 
