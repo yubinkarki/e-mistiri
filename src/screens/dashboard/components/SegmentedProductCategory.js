@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
+
 import {Colors, TextStyles} from '@app/constants';
 
 export default function SegmentedProductCategory() {

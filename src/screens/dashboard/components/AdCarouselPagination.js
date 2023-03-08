@@ -1,11 +1,12 @@
 import React, {useRef, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import Carousel, {Pagination} from 'react-native-snap-carousel-v4';
-import {Colors} from '@app/constants';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+
+import {Colors} from '@app/constants';
 
 export default function AdCarouselPagination({data, renderItem, customStyles}) {
   const [carouselIndex, setCarouselIndex] = useState(0);
