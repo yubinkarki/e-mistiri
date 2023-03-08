@@ -1,4 +1,4 @@
-# E-Mistiri
+# [E-Mistiri](https://www.youtube.com/watch?v=X-eR-kifqV8&list=PLQbZzpTA-bZDoiByLajTu4x0zM3t4jJCh&index=4&t=185s)
 
 An E-Commerce app developed using React Native CLI for Android.  
 Used `npx react-native init` to initialize the project.
