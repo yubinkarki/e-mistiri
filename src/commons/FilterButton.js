@@ -6,11 +6,11 @@ import {
 } from 'react-native-responsive-screen';
 import {Colors, Images} from '@app/constants';
 
-export default function FilterButton() {
+export default function FilterButton({onPress = () => {}}) {
   return (
     <TouchableOpacity
       style={Styles.mainContainer}
-      onPress={() => {}}
+      onPress={onPress}
       activeOpacity={0.6}>
       <Images.filterIcon />
     </TouchableOpacity>
