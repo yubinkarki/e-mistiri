@@ -44,7 +44,7 @@ export default function AddToCartMenu({modalState, modalChange, navigation}) {
       backdropTransitionInTiming={100}
       useNativeDriver={true}
       useNativeDriverForBackdrop={true}
-      deviceHeight={hp('100%')}
+      deviceHeight={hp('200%')}
       statusBarTranslucent={true}>
       <View style={Styles.cardContainer}>
         <View style={Styles.mainContainer}>
