@@ -55,7 +55,7 @@ export default function Login({navigation}) {
     <ScrollView
       style={Styles.mainContainer}
       keyboardShouldPersistTaps="handled">
-      <StatusBar backgroundColor={Colors.white} />
+      <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
 
       <Spinner
         visible={fetching}

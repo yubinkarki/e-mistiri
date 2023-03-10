@@ -87,7 +87,7 @@ export default function Dashboard({navigation}) {
 
   return (
     <View style={Styles.mainContainer}>
-      <StatusBar backgroundColor={Colors.white} />
+      <StatusBar backgroundColor={Colors.white} barStyle="dark-content" />
 
       <Spinner
         visible={searching}
