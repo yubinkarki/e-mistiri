@@ -5,10 +5,15 @@ Used `npx react-native init` to initialize the project.
 
 # Table of Contents
 
+- [Download APK](#APK)
 - [App functions](#app-functions)
 - [Editor Setup](#editor-setup)
 - [Development Setup](#development-setup)
 - [App Screenshots](#app-screenshots)
+
+# Download  
+
+Try out the app on [Android](https://drive.google.com/drive/folders/1z4aPFQxFIPtgH6CS-2CNQ9QmewhIFJLJ?usp=sharing). Latest version is the one with highest number.
 
 # App Functions
 
