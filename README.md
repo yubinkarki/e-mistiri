@@ -68,17 +68,31 @@ Run following commands from project root directory to get up and running with de
 
 # App Screenshots
 
+<p float="left">
 <img src="src/assets/screenshots/6.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/7.jpg" width="230" height="500" />
-<img src="src/assets/screenshots/15.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/15.jpg" width="230" height="500" />  
+</p>
+
+<p float="left">
 <img src="src/assets/screenshots/17.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/11.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/12.jpg" width="230" height="500" />
+</p>
+
+<p float="left">
 <img src="src/assets/screenshots/5.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/1.jpg" width="230" height="500" />
-<img src="src/assets/screenshots/3.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/3.jpg" width="230" height="500" />  
+</p>
+
+<p float="left">
 <img src="src/assets/screenshots/4.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/2.jpg" width="230" height="500" />
 <img src="src/assets/screenshots/10.jpg" width="230" height="500" />
+</p>
+
+<p float="left">
 <img src="src/assets/screenshots/9.jpg" width="230" height="500" />
-<img src="src/assets/screenshots/14.jpg" width="230" height="500" />
+<img src="src/assets/screenshots/14.jpg" width="230" height="500" />  
+</p>
